@@ -8,11 +8,12 @@ friction = 0.0
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 0.5
-height = 7.0
+height = 7.5
 
 [node name="RopeSegment" type="RigidBody2D"]
 mass = 0.1
 physics_material_override = SubResource( 2 )
+gravity_scale = 0.1
 linear_damp = 0.0
 angular_damp = 0.0
 script = ExtResource( 1 )
@@ -21,13 +22,13 @@ __meta__ = {
 }
 
 [node name="Collision" type="CollisionShape2D" parent="."]
-position = Vector2( -0.000982285, -4.0053 )
+position = Vector2( -0.0175352, -4.28849 )
 shape = SubResource( 1 )
 
 [node name="Pin" type="PinJoint2D" parent="."]
-position = Vector2( -0.0243912, -8.01745 )
-bias = 0.9
-softness = 1.0
+position = Vector2( 0.00871849, -8.45278 )
+bias = 0.5
+softness = 0.5
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -4.00209 )
