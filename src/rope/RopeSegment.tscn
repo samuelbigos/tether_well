@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/rope/RopeSegment.gd" type="Script" id=1]
+[ext_resource path="res://assets/items/rope.png" type="Texture" id=2]
+
+[sub_resource type="PhysicsMaterial" id=2]
+friction = 0.0
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 0.5
+height = 7.0
+
+[node name="RopeSegment" type="RigidBody2D"]
+mass = 0.1
+physics_material_override = SubResource( 2 )
+linear_damp = 0.0
+angular_damp = 0.0
+script = ExtResource( 1 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2( -0.000982285, -4.0053 )
+shape = SubResource( 1 )
+
+[node name="Pin" type="PinJoint2D" parent="."]
+position = Vector2( -0.0243912, -8.01745 )
+bias = 0.9
+softness = 1.0
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -4.00209 )
+texture = ExtResource( 2 )

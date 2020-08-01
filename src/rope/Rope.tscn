@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/rope/Rope.gd" type="Script" id=1]
+[ext_resource path="res://src/rope/RopeSegment.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/Dude.tscn" type="PackedScene" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 1.0
+
+[node name="Rope" type="Node2D"]
+script = ExtResource( 1 )
+rope_segment_scene = ExtResource( 2 )
+dude_scene = ExtResource( 3 )
+
+[node name="Anchor" type="StaticBody2D" parent="."]
+
+[node name="Collision" type="CollisionShape2D" parent="Anchor"]
+shape = SubResource( 1 )

@@ -1,0 +1,103 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://src/Game.gd" type="Script" id=1]
+[ext_resource path="res://src/rope/Rope.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/env/plat_c.png" type="Texture" id=3]
+[ext_resource path="res://assets/env/plat_r.png" type="Texture" id=4]
+[ext_resource path="res://assets/env/plat_l.png" type="Texture" id=5]
+[ext_resource path="res://src/Platform.gd" type="Script" id=6]
+[ext_resource path="res://assets/env/tileset.tres" type="TileSet" id=7]
+
+[node name="Game" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Rope" parent="." instance=ExtResource( 2 )]
+position = Vector2( 161.11, -753.095 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 7 )
+cell_size = Vector2( 20, 20 )
+collision_friction = 0.1
+format = 1
+tile_data = PoolIntArray( 0, 3, 0, 15, 4, 0, 65536, 3, 0, 65551, 4, 0, 131072, 3, 0, 131087, 4, 0, 196608, 3, 0, 196623, 4, 0, 262144, 3, 0, 262159, 4, 0, 327680, 3, 0, 327695, 4, 0, 393216, 3, 0, 393231, 4, 0, 458752, 3, 0, 458767, 4, 0, 524288, 3, 0, 524303, 4, 0, 589824, 3, 0, 589839, 4, 0, 655360, 3, 0, 655375, 4, 0, 720896, 3, 0, 720911, 4, 0, 786432, 3, 0, 786447, 4, 0, 851968, 3, 0, 851983, 4, 0, 917504, 3, 0, 917519, 4, 0, 983040, 3, 0, 983055, 4, 0, 1048576, 3, 0, 1048591, 4, 0, 1114112, 3, 0, 1114127, 4, 0, 1179648, 3, 0, 1179663, 4, 0, 1245184, 3, 0, 1245199, 4, 0, 1310720, 3, 0, 1310735, 4, 0, 1376256, 3, 0, 1376271, 4, 0, 1441792, 3, 0, 1441807, 4, 0, 1507328, 3, 0, 1507343, 4, 0 )
+
+[node name="Platform" type="StaticBody2D" parent="."]
+position = Vector2( 154.176, 90.0239 )
+script = ExtResource( 6 )
+width = 5
+texture_width = 20
+stream_texture_l = ExtResource( 5 )
+stream_texture_c = ExtResource( 3 )
+stream_texture_r = ExtResource( 4 )
+
+[node name="Platform8" type="StaticBody2D" parent="."]
+position = Vector2( 23, 0 )
+script = ExtResource( 6 )
+width = 8
+texture_width = 20
+stream_texture_l = ExtResource( 5 )
+stream_texture_c = ExtResource( 3 )
+stream_texture_r = ExtResource( 4 )
+
+[node name="Platform9" type="StaticBody2D" parent="."]
+position = Vector2( 298.412, 2.47181 )
+script = ExtResource( 6 )
+width = 8
+texture_width = 20
+stream_texture_l = ExtResource( 5 )
+stream_texture_c = ExtResource( 3 )
+stream_texture_r = ExtResource( 4 )
+
+[node name="Platform2" type="StaticBody2D" parent="."]
+position = Vector2( 71.3191, 148.841 )
+script = ExtResource( 6 )
+width = 7
+texture_width = 20
+stream_texture_l = ExtResource( 5 )
+stream_texture_c = ExtResource( 3 )
+stream_texture_r = ExtResource( 4 )
+
+[node name="Platform3" type="StaticBody2D" parent="."]
+position = Vector2( 201.813, 231.85 )
+script = ExtResource( 6 )
+width = 13
+texture_width = 20
+stream_texture_l = ExtResource( 5 )
+stream_texture_c = ExtResource( 3 )
+stream_texture_r = ExtResource( 4 )
+
+[node name="Platform4" type="StaticBody2D" parent="."]
+position = Vector2( 67.7826, 338.036 )
+script = ExtResource( 6 )
+width = 7
+texture_width = 20
+stream_texture_l = ExtResource( 5 )
+stream_texture_c = ExtResource( 3 )
+stream_texture_r = ExtResource( 4 )
+
+[node name="Platform5" type="StaticBody2D" parent="."]
+position = Vector2( 265.052, 304.056 )
+script = ExtResource( 6 )
+width = 7
+texture_width = 20
+stream_texture_l = ExtResource( 5 )
+stream_texture_c = ExtResource( 3 )
+stream_texture_r = ExtResource( 4 )
+
+[node name="Platform6" type="StaticBody2D" parent="."]
+position = Vector2( 157.923, 414.489 )
+script = ExtResource( 6 )
+width = 9
+texture_width = 20
+stream_texture_l = ExtResource( 5 )
+stream_texture_c = ExtResource( 3 )
+stream_texture_r = ExtResource( 4 )
+
+[node name="Platform7" type="StaticBody2D" parent="."]
+position = Vector2( 161.698, 483.392 )
+script = ExtResource( 6 )
+width = 17
+texture_width = 20
+stream_texture_l = ExtResource( 5 )
+stream_texture_c = ExtResource( 3 )
+stream_texture_r = ExtResource( 4 )
