@@ -12,6 +12,7 @@ class_name Rope
 var _rope_segments = []
 var _unwinding = false
 var _rewinding = false
+var _dude = null
 
 """ PUBLIC """
 
@@ -46,15 +47,21 @@ func _ready():
 		
 	_on_Reel_on_reel(0.0)
 		
-	var dude = dude_scene.instance()
+	_dude = dude_scene.instance()
 	var end_rope = _rope_segments[_rope_segments.size() - 1]
-	dude.position.y = end_rope.position.y + 5
-	add_child(dude)
-	dude.set_connected(end_rope)
-	get_parent().get_chest().connect("on_dude_enter", dude, "_on_chest_pick")
+	_dude.position.y = end_rope.position.y + 5
+	add_child(_dude)
+	_dude.set_connected(end_rope)
+	get_parent().get_chest().connect("on_dude_enter", _dude, "_on_chest_pick")
 	
 func _physics_process(delta):
 	pass
+	
+func _on_Reel_on_reel(delta):
+	$Anchor.position.y = min(ROPE_Y_MAX, max(ROPE_Y_MIN, $Anchor.position.y - wind_speed * delta))
+	var y = $Anchor.position.y
+	var percentage = (y - ROPE_Y_MIN) / (ROPE_Y_MAX - ROPE_Y_MIN)
+	emit_signal("on_rope_reeled", percentage)
 	
 """ PUBLIC """
 
@@ -64,8 +71,5 @@ func set_unwinding(unwinding):
 func set_rewinding(rewinding):
 	_rewinding = rewinding
 
-func _on_Reel_on_reel(delta):
-	$Anchor.position.y = min(ROPE_Y_MAX, max(ROPE_Y_MIN, $Anchor.position.y - wind_speed * delta))
-	var y = $Anchor.position.y
-	var percentage = (y - ROPE_Y_MIN) / (ROPE_Y_MAX - ROPE_Y_MIN)
-	emit_signal("on_rope_reeled", percentage)
+func get_dude():
+	return _dude

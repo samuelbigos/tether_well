@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/chars/wurm.png" type="Texture" id=1]
+[ext_resource path="res://src/wurm/WurmSegment.gd" type="Script" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 9.87484
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
+region = Rect2( 56, 0, 28, 28 )
+
+[node name="WurmSegment" type="RigidBody2D"]
+z_index = 1
+collision_layer = 0
+collision_mask = 0
+mass = 0.01
+gravity_scale = 0.0
+linear_damp = 100.0
+angular_damp = 0.0
+script = ExtResource( 2 )
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2( -0.794601, 2.3838 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = SubResource( 2 )
+
+[node name="Pin" type="PinJoint2D" parent="."]
+position = Vector2( -0.842508, -5.48816 )
+bias = 0.9
+softness = 0.1

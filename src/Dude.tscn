@@ -50,8 +50,8 @@ animations = [ {
 [node name="Dude" type="RigidBody2D" groups=[
 "dude",
 ]]
-collision_layer = 3
-collision_mask = 3
+collision_layer = 7
+collision_mask = 7
 mass = 5.0
 physics_material_override = SubResource( 1 )
 contacts_reported = 1

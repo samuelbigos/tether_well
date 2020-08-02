@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://src/Game.gd" type="Script" id=1]
 [ext_resource path="res://src/rope/Rope.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://src/env/Chest.tscn" type="PackedScene" id=9]
 [ext_resource path="res://assets/fontface/BigFont.tres" type="DynamicFontData" id=10]
 [ext_resource path="res://src/env/Platform.tscn" type="PackedScene" id=11]
+[ext_resource path="res://src/wurm/Wurm.tscn" type="PackedScene" id=12]
 
 [sub_resource type="DynamicFont" id=1]
 outline_size = 1
@@ -141,6 +142,7 @@ width = 10
 
 [node name="Reel" parent="." instance=ExtResource( 4 )]
 visible = false
+z_index = 2
 
 [node name="RopeLeft" type="Node2D" parent="."]
 position = Vector2( 75.5939, 18.0796 )
@@ -156,5 +158,8 @@ scale = Vector2( 12.9317, 301.994 )
 z_index = 1
 texture = ExtResource( 6 )
 centered = false
+
+[node name="Wurm" parent="." instance=ExtResource( 12 )]
+position = Vector2( 123.39, 295.779 )
 [connection signal="on_rope_reeled" from="Rope" to="RopeLeft" method="_on_Rope_on_rope_reeled"]
 [connection signal="on_reel" from="Reel" to="Rope" method="_on_Reel_on_reel"]

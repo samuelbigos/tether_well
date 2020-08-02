@@ -54,6 +54,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/env/Spike.gd"
 }, {
+"base": "RigidBody2D",
+"class": "Wurm",
+"language": "GDScript",
+"path": "res://src/wurm/Wurm.gd"
+}, {
+"base": "RigidBody2D",
+"class": "WurmSegment",
+"language": "GDScript",
+"path": "res://src/wurm/WurmSegment.gd"
+}, {
 "base": "Node",
 "class": "XXX",
 "language": "GDScript",
@@ -69,6 +79,8 @@ _global_script_class_icons={
 "RopeLeft": "",
 "RopeSegment": "",
 "Spike": "",
+"Wurm": "",
+"WurmSegment": "",
 "XXX": ""
 }
 

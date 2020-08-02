@@ -17,7 +17,7 @@ extends Node2D
 """ PRIVATE """
 
 func _ready():
-	pass
+	$Wurm._target = $Rope.get_dude()
 	
 func _process(delta):
 	PlayerData._time += delta
