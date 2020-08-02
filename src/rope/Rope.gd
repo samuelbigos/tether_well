@@ -15,11 +15,15 @@ var _rewinding = false
 
 """ PUBLIC """
 
+signal on_rope_reeled(percentage)
+
 export var rope_segment_scene : PackedScene = null
 export var dude_scene : PackedScene = null
 export var rope_segments = 100
-export var unwind_speed = 50
-export var rewind_speed = 50
+export var wind_speed = 2.5
+
+const ROPE_Y_MIN = -50
+const ROPE_Y_MAX = 450
 
 ###########
 # METHODS #
@@ -40,6 +44,8 @@ func _ready():
 		_rope_segments.append(segment)
 		prev_segment = segment
 		
+	_on_Reel_on_reel(0.0)
+		
 	var dude = dude_scene.instance()
 	var end_rope = _rope_segments[_rope_segments.size() - 1]
 	dude.position.y = end_rope.position.y + 5
@@ -48,11 +54,7 @@ func _ready():
 	get_parent().get_chest().connect("on_dude_enter", dude, "_on_chest_pick")
 	
 func _physics_process(delta):
-	if Input.is_action_pressed("game_unwind"):
-		$Anchor.position.y += unwind_speed * delta
-	
-	if Input.is_action_pressed("game_rewind"):
-		$Anchor.position.y -= rewind_speed * delta
+	pass
 	
 """ PUBLIC """
 
@@ -61,3 +63,9 @@ func set_unwinding(unwinding):
 	
 func set_rewinding(rewinding):
 	_rewinding = rewinding
+
+func _on_Reel_on_reel(delta):
+	$Anchor.position.y = min(ROPE_Y_MAX, max(ROPE_Y_MIN, $Anchor.position.y - wind_speed * delta))
+	var y = $Anchor.position.y
+	var percentage = (y - ROPE_Y_MIN) / (ROPE_Y_MAX - ROPE_Y_MIN)
+	emit_signal("on_rope_reeled", percentage)

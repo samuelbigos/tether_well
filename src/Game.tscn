@@ -1,8 +1,11 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://src/Game.gd" type="Script" id=1]
 [ext_resource path="res://src/rope/Rope.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/env/Spike.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/Reel.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/RopeLeft.gd" type="Script" id=5]
+[ext_resource path="res://assets/1px.png" type="Texture" id=6]
 [ext_resource path="res://assets/env/tileset.tres" type="TileSet" id=7]
 [ext_resource path="res://src/env/Coin.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/env/Chest.tscn" type="PackedScene" id=9]
@@ -135,3 +138,23 @@ width = 10
 [node name="Platform7" parent="." instance=ExtResource( 11 )]
 position = Vector2( 389.82, -3 )
 width = 10
+
+[node name="Reel" parent="." instance=ExtResource( 4 )]
+visible = false
+
+[node name="RopeLeft" type="Node2D" parent="."]
+position = Vector2( 75.5939, 18.0796 )
+script = ExtResource( 5 )
+
+[node name="End" type="Position2D" parent="RopeLeft"]
+position = Vector2( -2.46078, 285.924 )
+
+[node name="Cover" type="Sprite" parent="RopeLeft"]
+modulate = Color( 0.105882, 0.0117647, 0.14902, 1 )
+position = Vector2( -8.89928, 285.972 )
+scale = Vector2( 12.9317, 301.994 )
+z_index = 1
+texture = ExtResource( 6 )
+centered = false
+[connection signal="on_rope_reeled" from="Rope" to="RopeLeft" method="_on_Rope_on_rope_reeled"]
+[connection signal="on_reel" from="Reel" to="Rope" method="_on_Reel_on_reel"]
