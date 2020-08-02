@@ -2,12 +2,12 @@
 
 [ext_resource path="res://src/Game.gd" type="Script" id=1]
 [ext_resource path="res://src/rope/Rope.tscn" type="PackedScene" id=2]
-[ext_resource path="res://src/Spike.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/env/Spike.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/env/tileset.tres" type="TileSet" id=7]
-[ext_resource path="res://src/Coin.tscn" type="PackedScene" id=8]
-[ext_resource path="res://src/Chest.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/env/Coin.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/env/Chest.tscn" type="PackedScene" id=9]
 [ext_resource path="res://assets/fontface/BigFont.tres" type="DynamicFontData" id=10]
-[ext_resource path="res://src/Platform.tscn" type="PackedScene" id=11]
+[ext_resource path="res://src/env/Platform.tscn" type="PackedScene" id=11]
 
 [sub_resource type="DynamicFont" id=1]
 outline_size = 1
@@ -129,7 +129,7 @@ __meta__ = {
 }
 
 [node name="Platform6" parent="." instance=ExtResource( 11 )]
-position = Vector2( 90.612, -3 )
+position = Vector2( 90.1401, -3 )
 width = 10
 
 [node name="Platform7" parent="." instance=ExtResource( 11 )]

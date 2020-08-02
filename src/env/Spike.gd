@@ -44,8 +44,8 @@ func _process(delta):
 			pass
 		State.extend:
 			for body in get_overlapping_bodies():
-				if body.is_in_group("player"):
-					body.spike_hit(self)
+				if body.is_in_group("dude"):
+					body.on_hit(self)
 		
 func _change_state(to):
 	_state = to

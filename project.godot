@@ -12,12 +12,12 @@ _global_script_classes=[ {
 "base": "RigidBody2D",
 "class": "Chest",
 "language": "GDScript",
-"path": "res://src/Chest.gd"
+"path": "res://src/env/Chest.gd"
 }, {
-"base": "Area2D",
+"base": "RigidBody2D",
 "class": "Coin",
 "language": "GDScript",
-"path": "res://src/Coin.gd"
+"path": "res://src/env/Coin.gd"
 }, {
 "base": "RigidBody2D",
 "class": "Dude",
@@ -27,7 +27,7 @@ _global_script_classes=[ {
 "base": "StaticBody2D",
 "class": "Platform",
 "language": "GDScript",
-"path": "res://src/Platform.gd"
+"path": "res://src/env/Platform.gd"
 }, {
 "base": "Node2D",
 "class": "Rope",
@@ -42,7 +42,7 @@ _global_script_classes=[ {
 "base": "Area2D",
 "class": "Spike",
 "language": "GDScript",
-"path": "res://src/Spike.gd"
+"path": "res://src/env/Spike.gd"
 }, {
 "base": "Node",
 "class": "XXX",
@@ -65,6 +65,10 @@ _global_script_class_icons={
 config/name="Tether Well"
 run/main_scene="res://src/Game.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+PlayerData="*res://src/PlayerData.gd"
 
 [display]
 
@@ -102,4 +106,3 @@ game_rewind={
 
 quality/2d/use_pixel_snap=true
 environment/default_clear_color=Color( 0.105882, 0.0117647, 0.14902, 1 )
-environment/default_environment="res://default_env.tres"
