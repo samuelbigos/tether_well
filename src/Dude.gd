@@ -43,17 +43,31 @@ func _integrate_forces(state):
 	
 	if _attached_body:
 		state.linear_velocity = _move_dir * MOVE_SPEED
-	
+			
 func _on_Dude_body_entered(body):
-	if body.is_in_group("platform"):
+	if body.is_in_group("platform") and body.get_global_position().y > get_global_position().y:
 		_attached_body = body
 		_last_attached_body = body
 		$AnimSprite.play("walk")
+		
+	#if body.is_in_group("chest"):
+	#	var joint = PinJoint2D.new()
+	#	joint.set_node_a(self.get_path())
+	#	joint.set_node_b(body.get_path())
+	#	add_child(joint)
 
 func _on_Dude_body_exited(body):
 	if body.is_in_group("platform"):
 		_attached_body = null
 		$AnimSprite.play("fall")
+		
+func _on_chest_pick(chest):
+	var joint = PinJoint2D.new()
+	joint.softness = 0.5
+	joint.bias = 0.5
+	joint.set_node_a(self.get_path())
+	joint.set_node_b(chest.get_path())
+	add_child(joint)
 
 """ PUBLIC """
 

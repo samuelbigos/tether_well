@@ -10,14 +10,19 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "RigidBody2D",
+"class": "Chest",
+"language": "GDScript",
+"path": "res://src/Chest.gd"
+}, {
+"base": "Area2D",
+"class": "Coin",
+"language": "GDScript",
+"path": "res://src/Coin.gd"
+}, {
+"base": "RigidBody2D",
 "class": "Dude",
 "language": "GDScript",
 "path": "res://src/Dude.gd"
-}, {
-"base": "Node2D",
-"class": "Game",
-"language": "GDScript",
-"path": "res://src/Game.gd"
 }, {
 "base": "StaticBody2D",
 "class": "Platform",
@@ -40,8 +45,9 @@ _global_script_classes=[ {
 "path": "res://src/SourceTemplate.gd"
 } ]
 _global_script_class_icons={
+"Chest": "",
+"Coin": "",
 "Dude": "",
-"Game": "",
 "Platform": "",
 "Rope": "",
 "RopeSegment": "",
@@ -56,10 +62,10 @@ config/icon="res://icon.png"
 
 [display]
 
-window/size/width=320
-window/size/height=480
-window/size/test_width=640
-window/size/test_height=960
+window/size/width=480
+window/size/height=320
+window/size/test_width=960
+window/size/test_height=640
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
 

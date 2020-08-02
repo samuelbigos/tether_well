@@ -45,7 +45,7 @@ func _ready():
 	dude.position.y = end_rope.position.y + 5
 	add_child(dude)
 	dude.set_connected(end_rope)
-	
+	get_parent().get_chest().connect("on_dude_enter", dude, "_on_chest_pick")
 	
 func _physics_process(delta):
 	if Input.is_action_pressed("game_unwind"):
@@ -53,15 +53,6 @@ func _physics_process(delta):
 	
 	if Input.is_action_pressed("game_rewind"):
 		$Anchor.position.y -= rewind_speed * delta
-		
-func _insert_segment():
-	#var segment = rope_segment_scene.instance()
-	#segment.position.y = 0.0 + segment.get_length()
-	#add_child(segment)
-	#segment.set_connected($Anchor)
-	#_rope_segments.push_front(segment)
-	_rope_segments[0].set_disconnected()
-	#_rope_segments[1].set_connected(segment)
 	
 """ PUBLIC """
 

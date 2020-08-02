@@ -1,8 +1,10 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://src/Dude.gd" type="Script" id=1]
 [ext_resource path="res://assets/chars/player_walk.png" type="Texture" id=2]
 [ext_resource path="res://assets/chars/player_fall.png" type="Texture" id=3]
+
+[sub_resource type="PhysicsMaterial" id=9]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 4.19008
@@ -24,29 +26,32 @@ region = Rect2( 32, 0, 16, 16 )
 atlas = ExtResource( 2 )
 region = Rect2( 48, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=7]
+[sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 3 )
 region = Rect2( 0, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=8]
+[sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 3 )
 region = Rect2( 16, 0, 16, 16 )
 
-[sub_resource type="SpriteFrames" id=6]
+[sub_resource type="SpriteFrames" id=8]
 animations = [ {
 "frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ],
 "loop": true,
 "name": "walk",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 7 ), SubResource( 8 ) ],
+"frames": [ SubResource( 6 ), SubResource( 7 ) ],
 "loop": true,
 "name": "fall",
 "speed": 10.0
 } ]
 
-[node name="Dude" type="RigidBody2D"]
+[node name="Dude" type="RigidBody2D" groups=[
+"dude",
+]]
 mass = 5.0
+physics_material_override = SubResource( 9 )
 contacts_reported = 1
 contact_monitor = true
 linear_damp = 0.0
@@ -60,7 +65,7 @@ shape = SubResource( 1 )
 
 [node name="AnimSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0.515043, -1.0769 )
-frames = SubResource( 6 )
+frames = SubResource( 8 )
 animation = "walk"
 [connection signal="body_entered" from="." to="." method="_on_Dude_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_Dude_body_exited"]

@@ -1,0 +1,18 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/env/plat_r.png" type="Texture" id=1]
+[ext_resource path="res://assets/env/plat_l.png" type="Texture" id=2]
+[ext_resource path="res://assets/env/plat_c.png" type="Texture" id=3]
+[ext_resource path="res://src/Platform.gd" type="Script" id=5]
+
+[sub_resource type="PhysicsMaterial" id=1]
+friction = 0.0
+
+[node name="Platform" type="StaticBody2D"]
+physics_material_override = SubResource( 1 )
+script = ExtResource( 5 )
+width = 1
+texture_width = 20
+stream_texture_l = ExtResource( 2 )
+stream_texture_c = ExtResource( 3 )
+stream_texture_r = ExtResource( 1 )

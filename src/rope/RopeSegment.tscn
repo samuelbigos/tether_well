@@ -3,16 +3,16 @@
 [ext_resource path="res://src/rope/RopeSegment.gd" type="Script" id=1]
 [ext_resource path="res://assets/items/rope.png" type="Texture" id=2]
 
-[sub_resource type="PhysicsMaterial" id=2]
+[sub_resource type="PhysicsMaterial" id=1]
 friction = 0.0
 
-[sub_resource type="CapsuleShape2D" id=1]
+[sub_resource type="CapsuleShape2D" id=2]
 radius = 0.5
-height = 7.5
+height = 7.0
 
 [node name="RopeSegment" type="RigidBody2D"]
 mass = 0.1
-physics_material_override = SubResource( 2 )
+physics_material_override = SubResource( 1 )
 gravity_scale = 0.1
 linear_damp = 0.0
 angular_damp = 0.0
@@ -22,11 +22,11 @@ __meta__ = {
 }
 
 [node name="Collision" type="CollisionShape2D" parent="."]
-position = Vector2( -0.0175352, -4.28849 )
-shape = SubResource( 1 )
+position = Vector2( -0.0423384, -3.5444 )
+shape = SubResource( 2 )
 
 [node name="Pin" type="PinJoint2D" parent="."]
-position = Vector2( 0.00871849, -8.45278 )
+position = Vector2( -0.065691, -7.039 )
 bias = 0.5
 softness = 0.5
 
