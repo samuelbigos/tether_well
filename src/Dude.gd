@@ -77,3 +77,6 @@ func set_connected(node):
 
 func get_length():
 	return $Collision.shape.height
+	
+func spike_hit(spike):
+	

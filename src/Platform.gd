@@ -36,8 +36,9 @@ func _ready():
 
 func _setup():
 	for child in get_children():
-		if not child.is_in_group("coin"):
-			child.queue_free()
+		if child.is_in_group("coin") or child.is_in_group("spike"):
+			continue
+		child.queue_free()
 		
 	var sprite_l = Sprite.new()
 	sprite_l.texture = stream_texture_l
