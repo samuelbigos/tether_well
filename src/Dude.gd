@@ -15,15 +15,20 @@ var _move_dir = Vector2(1.0, 0.0)
 var _invincibility_timer = 0.0
 var _flash_timer = 0.0
 var _flashing = false
+var _dead = false
+var _death_timer = 2.0
 
 var coin_res = preload("res://src/env/Coin.tscn")
 	
 """ PUBLIC """
 
+signal on_game_over
+
 const MOVE_SPEED = 25
 const INVINCIBILITY_TIME = 2.5
 const INV_FLASH_TIME = 0.05
 const COIN_DROP_IMPULSE = 200.0
+const DEATH_TIME = 2.0
 
 ###########
 # METHODS #
@@ -35,15 +40,21 @@ func _ready():
 	$AnimSprite.play("fall")
 	
 func _process(delta):
-	_invincibility_timer -= delta
-	if _invincibility_timer < 0.0:
-		_flashing = false
-		$AnimSprite.visible = true
-	if _flashing:
-		_flash_timer -= delta
-		if _flash_timer < 0.0:
-			$AnimSprite.visible = !$AnimSprite.visible
-			_flash_timer = INV_FLASH_TIME
+	if not _dead:
+		_invincibility_timer -= delta
+		if _invincibility_timer < 0.0:
+			_flashing = false
+			$AnimSprite.visible = true
+		if _flashing:
+			_flash_timer -= delta
+			if _flash_timer < 0.0:
+				$AnimSprite.visible = !$AnimSprite.visible
+				_flash_timer = INV_FLASH_TIME
+		if _dead:
+			_death_timer -= delta
+			if _death_timer < 0.0:
+				emit_signal("on_game_over")
+				
 
 func _input(event):
 	if event.is_action_pressed("ui_select"):
@@ -56,11 +67,10 @@ func _input(event):
 func _integrate_forces(state):
 	var up = Vector2(0.0, -1.0)
 	var transform = Transform(state.transform)
-	
 	state.transform = Transform2D(atan2(up.x, -up.y), state.transform.get_origin())
 	state.angular_velocity = 0.0
 	
-	if _attached_body:
+	if _attached_body and not _dead:
 		state.linear_velocity = _move_dir * MOVE_SPEED
 			
 func _on_Dude_body_entered(body):
@@ -98,6 +108,16 @@ func _drop_coins():
 		coin.set_was_dropped()
 		get_parent().add_child(coin)
 		coin.position = Vector2(position.x, position.y - $Collision.shape.height)
+		
+func _on_die():
+	collision_layer = 0
+	collision_mask = 0
+	_dead = true
+	apply_impulse(Vector2(), Vector2(0.0, -500.0))
+	$Pin.queue_free()
+	$DeathAnim.visible = true
+	$AnimSprite.visible = false
+	_death_timer = DEATH_TIME
 
 """ PUBLIC """
 
@@ -112,11 +132,11 @@ func on_hit(hitter):
 	if _is_invincible():
 		return
 		
-	if PlayerData._coins > 0:	
-		_invincibility_timer = INVINCIBILITY_TIME
-		_flashing = true
-		_flash_timer = INV_FLASH_TIME
-		_drop_coins()
+	if PlayerData._coins > 0:
+		_on_die()
+		#_invincibility_timer = INVINCIBILITY_TIME
+		#_flashing = true
+		#_flash_timer = INV_FLASH_TIME
+		#_drop_coins()
 	else:
-		pass
-		#end_game
+		_on_die()

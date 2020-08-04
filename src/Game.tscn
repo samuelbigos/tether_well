@@ -36,13 +36,13 @@ position = Vector2( 241.16, 59.834 )
 width = 5
 
 [node name="Coin6" parent="Platform" instance=ExtResource( 8 )]
-position = Vector2( -19.4896, -19.8332 )
+position = Vector2( -19.4896, -21.1695 )
 
 [node name="Coin7" parent="Platform" instance=ExtResource( 8 )]
-position = Vector2( 0.331772, -20.8102 )
+position = Vector2( -1.45003, -19.4739 )
 
 [node name="Coin8" parent="Platform" instance=ExtResource( 8 )]
-position = Vector2( 20.1532, -22.0577 )
+position = Vector2( 17.926, -21.1668 )
 
 [node name="Platform2" parent="." instance=ExtResource( 11 )]
 position = Vector2( 153.38, 138.648 )
@@ -52,13 +52,10 @@ width = 5
 position = Vector2( -32.7038, -19.3612 )
 
 [node name="Coin7" parent="Platform2" instance=ExtResource( 8 )]
-position = Vector2( -11.9386, -20.8102 )
+position = Vector2( -15.0568, -20.3647 )
 
 [node name="Coin8" parent="Platform2" instance=ExtResource( 8 )]
-position = Vector2( 8.82664, -20.1699 )
-
-[node name="Coin9" parent="Platform2" instance=ExtResource( 8 )]
-position = Vector2( 28.1761, -20.6419 )
+position = Vector2( 3.48124, -20.1699 )
 
 [node name="Spike" parent="Platform2" instance=ExtResource( 3 )]
 position = Vector2( 38.1433, -15.0819 )
@@ -72,6 +69,9 @@ position = Vector2( 19.2092, -17.0348 )
 
 [node name="Coin8" parent="Platform3" instance=ExtResource( 8 )]
 position = Vector2( 38.0867, -16.8664 )
+
+[node name="Spike2" parent="Platform3" instance=ExtResource( 3 )]
+position = Vector2( -34.3328, -19.3799 )
 
 [node name="Platform4" parent="." instance=ExtResource( 11 )]
 position = Vector2( 202.933, 253.328 )
@@ -160,6 +160,6 @@ texture = ExtResource( 6 )
 centered = false
 
 [node name="Wurm" parent="." instance=ExtResource( 12 )]
-position = Vector2( 123.39, 295.779 )
+position = Vector2( 255.159, 172.116 )
 [connection signal="on_rope_reeled" from="Rope" to="RopeLeft" method="_on_Rope_on_rope_reeled"]
 [connection signal="on_reel" from="Reel" to="Rope" method="_on_Reel_on_reel"]

@@ -47,7 +47,6 @@ func _integrate_forces(state):
 		var move_dir = target_vector.normalized() 
 		var rand_adjust = Vector2(move_dir.y, -move_dir.x) * _noise.get_noise_2d(global_position.x, global_position.y)
 		move_dir += rand_adjust * RAND_MOVE_INFLUENCE
-		print(rand_adjust)
 		state.linear_velocity = move_dir * MOVE_SPEED
 		var transform = Transform(state.transform)	
 		state.transform = Transform2D(atan2(move_dir.x, -move_dir.y), state.transform.get_origin())
@@ -62,3 +61,7 @@ func _integrate_forces(state):
 		_segments.append(segment)
 
 """ PUBLIC """
+
+func _on_Head_body_entered(body):
+	if body.is_in_group("dude"):
+		body.on_hit(self)
