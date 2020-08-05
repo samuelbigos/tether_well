@@ -1,0 +1,348 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://assets/env/tileset.tres" type="TileSet" id=1]
+[ext_resource path="res://src/env/Chest.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/HUD.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/wurm/Wurm.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/env/Platform.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/Reel.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/env/Spike.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/levels/Game.gd" type="Script" id=8]
+[ext_resource path="res://src/env/Coin.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/rope/Rope.tscn" type="PackedScene" id=10]
+[ext_resource path="res://src/rope/RopeLeft.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/fonts/SpeechFont.tres" type="DynamicFont" id=12]
+[ext_resource path="res://assets/gui/speech.png" type="Texture" id=13]
+[ext_resource path="res://src/screen_intro/SpeechBubble.gd" type="Script" id=14]
+
+[node name="Game" type="Node2D"]
+script = ExtResource( 8 )
+wurm_scene = ExtResource( 4 )
+
+[node name="Rope" parent="." instance=ExtResource( 10 )]
+position = Vector2( 239.863, -497.168 )
+rope_segments = 74
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 20, 20 )
+collision_friction = 0.1
+format = 1
+tile_data = PoolIntArray( -1638391, 3, 0, -1638386, 4, 0, -1572855, 3, 0, -1572850, 4, 0, -1507319, 3, 0, -1507314, 4, 0, -1441783, 3, 0, -1441778, 4, 0, -1376247, 3, 0, -1376242, 4, 0, -1310711, 3, 0, -1310706, 4, 0, -1245175, 3, 0, -1245170, 4, 0, -1179639, 3, 0, -1179634, 4, 0, -1114103, 3, 0, -1114098, 4, 0, -1048567, 3, 0, -1048562, 4, 0, -983031, 3, 0, -983026, 4, 0, -917495, 3, 0, -917490, 4, 0, -851959, 3, 0, -851954, 4, 0, -786423, 3, 0, -786418, 4, 0, -720887, 3, 0, -720882, 4, 0, -655351, 3, 0, -655346, 4, 0, -589815, 3, 0, -589810, 4, 0, -524279, 3, 0, -524274, 4, 0, -458743, 3, 0, -458738, 4, 0, -393207, 3, 0, -393202, 4, 0, -327671, 3, 0, -327666, 4, 0, -262135, 3, 0, -262130, 4, 0, -196599, 3, 0, -196594, 4, 0, -131063, 3, 0, -131058, 4, 0, -65527, 3, 0, -65522, 4, 0, 9, 3, 0, 14, 4, 0, 65545, 3, 0, 65550, 4, 0, 131081, 3, 0, 131086, 4, 0, 196617, 3, 0, 196622, 4, 0, 262153, 3, 0, 262158, 4, 0, 327689, 3, 0, 327694, 4, 0, 393220, 3, 0, 393235, 4, 0, 458756, 3, 0, 458771, 4, 0, 524292, 3, 0, 524307, 4, 0, 589828, 3, 0, 589843, 4, 0, 655364, 3, 0, 655379, 4, 0, 720900, 3, 0, 720915, 4, 0, 786436, 3, 0, 786451, 4, 0, 851972, 3, 0, 851987, 4, 0, 917508, 3, 0, 917523, 4, 0, 983044, 3, 0, 983059, 4, 0, 1048580, 3, 0, 1048595, 4, 0 )
+
+[node name="Platform" parent="." instance=ExtResource( 5 )]
+position = Vector2( 238.8, 322.231 )
+width = 14
+
+[node name="Coin6" parent="Platform" instance=ExtResource( 9 )]
+position = Vector2( -57.0524, -22.5396 )
+
+[node name="Coin7" parent="Platform" instance=ExtResource( 9 )]
+position = Vector2( -28.8035, -21.3399 )
+
+[node name="Coin8" parent="Platform" instance=ExtResource( 9 )]
+position = Vector2( -0.728027, -23.7047 )
+
+[node name="Coin9" parent="Platform" instance=ExtResource( 9 )]
+position = Vector2( 26.2883, -23.1749 )
+
+[node name="Coin10" parent="Platform" instance=ExtResource( 9 )]
+position = Vector2( 56.483, -24.2344 )
+
+[node name="Platform3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 329.09, 191.523 )
+width = 5
+
+[node name="Coin6" parent="Platform3" instance=ExtResource( 9 )]
+position = Vector2( -30.6738, -19.5298 )
+
+[node name="Coin7" parent="Platform3" instance=ExtResource( 9 )]
+position = Vector2( -11.6954, -18.583 )
+
+[node name="Coin8" parent="Platform3" instance=ExtResource( 9 )]
+position = Vector2( 5.68903, -18.9131 )
+
+[node name="Platform2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 201.828, 253.632 )
+width = 10
+
+[node name="Coin6" parent="Platform2" instance=ExtResource( 9 )]
+position = Vector2( -88.3537, -22.4793 )
+
+[node name="Coin7" parent="Platform2" instance=ExtResource( 9 )]
+position = Vector2( -72.7219, -22.592 )
+
+[node name="Coin8" parent="Platform2" instance=ExtResource( 9 )]
+position = Vector2( -57.4562, -22.4767 )
+
+[node name="Coin10" parent="Platform2" instance=ExtResource( 9 )]
+position = Vector2( 8.23051, -20.8875 )
+
+[node name="Coin9" parent="Platform2" instance=ExtResource( 9 )]
+position = Vector2( -8.72087, -20.8875 )
+
+[node name="Spike" parent="Platform2" instance=ExtResource( 7 )]
+position = Vector2( -35.0712, -21.7218 )
+
+[node name="Chest" parent="." instance=ExtResource( 2 )]
+position = Vector2( 128.667, 306.239 )
+
+[node name="Platform6" parent="." instance=ExtResource( 5 )]
+position = Vector2( 144.14, 119 )
+width = 5
+
+[node name="Platform7" parent="." instance=ExtResource( 5 )]
+position = Vector2( 385.82, 119 )
+width = 10
+
+[node name="HUD" parent="." instance=ExtResource( 3 )]
+
+[node name="Reel" parent="." instance=ExtResource( 6 )]
+visible = false
+z_index = 2
+
+[node name="RopeLeft" parent="." instance=ExtResource( 11 )]
+
+[node name="FTUE" type="CanvasLayer" parent="."]
+pause_mode = 2
+
+[node name="FTUE1" type="NinePatchRect" parent="FTUE"]
+visible = false
+margin_left = 49.0
+margin_top = 77.5
+margin_right = 252.0
+margin_bottom = 204.5
+texture = ExtResource( 13 )
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 7
+patch_margin_bottom = 7
+script = ExtResource( 14 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="FTUE/FTUE1"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = -5.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="Label" parent="FTUE/FTUE1/VBoxContainer"]
+margin_right = 193.0
+margin_bottom = 13.0
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 12 )
+custom_colors/font_color = Color( 0.105882, 0.0117647, 0.14902, 1 )
+text = "test text"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FTUE2" type="NinePatchRect" parent="FTUE"]
+visible = false
+margin_left = 232.0
+margin_top = 77.0
+margin_right = 422.0
+margin_bottom = 233.0
+texture = ExtResource( 13 )
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 7
+patch_margin_bottom = 7
+script = ExtResource( 14 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="FTUE/FTUE2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = -5.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="Label" parent="FTUE/FTUE2/VBoxContainer"]
+margin_right = 180.0
+margin_bottom = 13.0
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 12 )
+custom_colors/font_color = Color( 0.105882, 0.0117647, 0.14902, 1 )
+text = "test text"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FTUE3" type="NinePatchRect" parent="FTUE"]
+visible = false
+margin_left = 31.0
+margin_top = 188.0
+margin_right = 161.0
+margin_bottom = 307.0
+texture = ExtResource( 13 )
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 7
+patch_margin_bottom = 7
+script = ExtResource( 14 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="FTUE/FTUE3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = -5.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="Label" parent="FTUE/FTUE3/VBoxContainer"]
+margin_right = 120.0
+margin_bottom = 13.0
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 12 )
+custom_colors/font_color = Color( 0.105882, 0.0117647, 0.14902, 1 )
+text = "test text"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FTUE4" type="NinePatchRect" parent="FTUE"]
+visible = false
+margin_left = 283.0
+margin_top = 199.0
+margin_right = 474.0
+margin_bottom = 302.0
+texture = ExtResource( 13 )
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 7
+patch_margin_bottom = 7
+script = ExtResource( 14 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="FTUE/FTUE4"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = -5.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="Label" parent="FTUE/FTUE4/VBoxContainer"]
+margin_right = 181.0
+margin_bottom = 13.0
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 12 )
+custom_colors/font_color = Color( 0.105882, 0.0117647, 0.14902, 1 )
+text = "test text"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FTUE5" type="NinePatchRect" parent="FTUE"]
+visible = false
+margin_left = 32.4594
+margin_top = 92.1892
+margin_right = 178.459
+margin_bottom = 211.189
+texture = ExtResource( 13 )
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 7
+patch_margin_bottom = 7
+script = ExtResource( 14 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="FTUE/FTUE5"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = -5.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="Label" parent="FTUE/FTUE5/VBoxContainer"]
+margin_right = 136.0
+margin_bottom = 13.0
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 12 )
+custom_colors/font_color = Color( 0.105882, 0.0117647, 0.14902, 1 )
+text = "test text"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FTUE6" type="NinePatchRect" parent="FTUE"]
+visible = false
+margin_left = 143.0
+margin_top = 258.0
+margin_right = 442.0
+margin_bottom = 319.0
+texture = ExtResource( 13 )
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 7
+patch_margin_bottom = 7
+script = ExtResource( 14 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="FTUE/FTUE6"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = -5.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="Label" parent="FTUE/FTUE6/VBoxContainer"]
+margin_right = 289.0
+margin_bottom = 13.0
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 12 )
+custom_colors/font_color = Color( 0.105882, 0.0117647, 0.14902, 1 )
+text = "test text"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="on_reel" from="Reel" to="Rope" method="_on_Reel_on_reel"]

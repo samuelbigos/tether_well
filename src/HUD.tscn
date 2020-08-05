@@ -1,0 +1,136 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/fonts/SpeechFont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/gui/speech.png" type="Texture" id=2]
+[ext_resource path="res://assets/gui/speech_arrow.png" type="Texture" id=3]
+[ext_resource path="res://src/screen_intro/SpeechBubble.gd" type="Script" id=4]
+[ext_resource path="res://src/HUD.gd" type="Script" id=5]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource( 5 )
+
+[node name="ScoreLabel" type="Label" parent="."]
+margin_left = 404.877
+margin_top = 17.2397
+margin_right = 444.877
+margin_bottom = 31.2397
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.937255, 0.976471, 0.839216, 1 )
+custom_colors/font_color_shadow = Color( 0.729412, 0.313726, 0.266667, 1 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TimeLabel" type="Label" parent="."]
+margin_left = 404.877
+margin_top = 38.2397
+margin_right = 444.877
+margin_bottom = 52.2397
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.937255, 0.976471, 0.839216, 1 )
+custom_colors/font_color_shadow = Color( 0.729412, 0.313726, 0.266667, 1 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Yell" type="NinePatchRect" parent="."]
+visible = false
+margin_left = 251.467
+margin_top = 16.3304
+margin_right = 330.467
+margin_bottom = 37.3304
+texture = ExtResource( 2 )
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 7
+patch_margin_bottom = 7
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Yell"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = -5.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="Label" parent="Yell/VBoxContainer"]
+margin_right = 69.0
+margin_bottom = 13.0
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.105882, 0.0117647, 0.14902, 1 )
+text = "test text"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Yell"]
+margin_left = 33.685
+margin_top = -6.7773
+margin_right = 46.685
+margin_bottom = 0.222698
+texture = ExtResource( 3 )
+flip_v = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DudeText" type="NinePatchRect" parent="."]
+margin_left = 192.0
+margin_top = 205.0
+margin_right = 301.0
+margin_bottom = 226.0
+texture = ExtResource( 2 )
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 7
+patch_margin_bottom = 7
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DudeText"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = -5.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="Label" parent="DudeText/VBoxContainer"]
+margin_right = 99.0
+margin_bottom = 13.0
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.105882, 0.0117647, 0.14902, 1 )
+text = "test text"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="DudeText"]
+margin_left = 47.685
+margin_top = 21.2227
+margin_right = 60.685
+margin_bottom = 28.2227
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

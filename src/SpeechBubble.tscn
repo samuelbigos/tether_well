@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/gui/speech.png" type="Texture" id=1]
+[ext_resource path="res://assets/gui/speech_arrow.png" type="Texture" id=2]
+[ext_resource path="res://assets/fonts/SpeechFont.tres" type="DynamicFont" id=3]
+[ext_resource path="res://src/screen_intro/SpeechBubble.gd" type="Script" id=4]
+
+[node name="SpeechBubble" type="NinePatchRect"]
+margin_left = 27.7729
+margin_top = 180.763
+margin_right = 164.773
+margin_bottom = 229.763
+texture = ExtResource( 1 )
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 7
+patch_margin_bottom = 7
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = -5.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="Label" parent="VBoxContainer"]
+margin_right = 127.0
+margin_bottom = 13.0
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0.105882, 0.0117647, 0.14902, 1 )
+text = "test text"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = 106.685
+margin_top = 49.2227
+margin_right = 119.685
+margin_bottom = 56.2227
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

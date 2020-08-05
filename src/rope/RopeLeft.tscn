@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/RopeLeft.gd" type="Script" id=1]
+[ext_resource path="res://assets/1px.png" type="Texture" id=2]
+[ext_resource path="res://assets/gui/rope_start.png" type="Texture" id=3]
+[ext_resource path="res://assets/gui/rope_end.png" type="Texture" id=4]
+
+[node name="RopeLeft" type="Node2D"]
+position = Vector2( 21, 16 )
+script = ExtResource( 1 )
+
+[node name="End" type="Position2D" parent="."]
+position = Vector2( 0, 285.924 )
+
+[node name="Cover" type="Sprite" parent="."]
+modulate = Color( 0.105882, 0.0117647, 0.14902, 1 )
+position = Vector2( -8.89928, 285.972 )
+scale = Vector2( 12.9317, 301.994 )
+z_index = 1
+texture = ExtResource( 2 )
+centered = false
+
+[node name="Start" type="Sprite" parent="."]
+position = Vector2( 0, -4.68458 )
+z_index = 2
+texture = ExtResource( 3 )
+
+[node name="End2" type="Sprite" parent="."]
+position = Vector2( -1.52588e-05, 290.703 )
+z_index = 2
+texture = ExtResource( 4 )

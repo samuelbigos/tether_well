@@ -9,7 +9,7 @@ class_name Spike
 
 """ PRIVATE """
 
-const SPIKE_FREQUENCY = 5.0
+const SPIKE_FREQUENCY = 3.0
 
 enum State {
 	idle,

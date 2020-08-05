@@ -24,6 +24,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/Dude.gd"
 }, {
+"base": "CanvasLayer",
+"class": "HUD",
+"language": "GDScript",
+"path": "res://src/HUD.gd"
+}, {
 "base": "StaticBody2D",
 "class": "Platform",
 "language": "GDScript",
@@ -49,6 +54,26 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/rope/RopeSegment.gd"
 }, {
+"base": "Resource",
+"class": "SaveGame",
+"language": "GDScript",
+"path": "res://src/SaveGame.gd"
+}, {
+"base": "Node2D",
+"class": "ScreenIntro",
+"language": "GDScript",
+"path": "res://src/screen_intro/ScreenIntro.gd"
+}, {
+"base": "CanvasLayer",
+"class": "ScreenMenu",
+"language": "GDScript",
+"path": "res://src/screen_menu/ScreenMenu.gd"
+}, {
+"base": "NinePatchRect",
+"class": "SpeechBubble",
+"language": "GDScript",
+"path": "res://src/screen_intro/SpeechBubble.gd"
+}, {
 "base": "Area2D",
 "class": "Spike",
 "language": "GDScript",
@@ -73,11 +98,16 @@ _global_script_class_icons={
 "Chest": "",
 "Coin": "",
 "Dude": "",
+"HUD": "",
 "Platform": "",
 "Reel": "",
 "Rope": "",
 "RopeLeft": "",
 "RopeSegment": "",
+"SaveGame": "",
+"ScreenIntro": "",
+"ScreenMenu": "",
+"SpeechBubble": "",
 "Spike": "",
 "Wurm": "",
 "WurmSegment": "",
@@ -87,12 +117,15 @@ _global_script_class_icons={
 [application]
 
 config/name="Tether Well"
-run/main_scene="res://src/Game.tscn"
+run/main_scene="res://src/screen_menu/ScreenMenu.tscn"
 config/icon="res://icon.png"
+config/save_version=0
 
 [autoload]
 
 PlayerData="*res://src/PlayerData.gd"
+SaveManager="*res://src/SaveManager.gd"
+PauseController="*res://src/PauseController.gd"
 
 [display]
 
@@ -119,6 +152,11 @@ game_unwind={
 game_rewind={
 "deadzone": 0.5,
 "events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":2,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+ui_next={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
  ]
 }
 

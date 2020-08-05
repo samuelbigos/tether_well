@@ -56,7 +56,7 @@ func _integrate_forces(state):
 func _on_Coin_body_entered(body):
 	if body.is_in_group("dude") and _can_collect():
 		self.queue_free()
-		PlayerData._coins += 1
+		PlayerData.coins += 1
 		
 """ PUBLIC """
 

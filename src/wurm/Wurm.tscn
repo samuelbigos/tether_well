@@ -1,11 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/wurm/Wurm.gd" type="Script" id=1]
 [ext_resource path="res://assets/chars/wurm.png" type="Texture" id=2]
 [ext_resource path="res://src/wurm/WurmSegment.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 11.3745
+radius = 13.2705
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 2 )
@@ -22,6 +22,9 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 } ]
+
+[sub_resource type="CircleShape2D" id=5]
+radius = 15.5869
 
 [node name="Head" type="RigidBody2D"]
 z_index = 1
@@ -40,5 +43,12 @@ shape = SubResource( 1 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 4 )
+frame = 1
 playing = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 0, -1.17984 )
+shape = SubResource( 5 )
 [connection signal="body_entered" from="." to="." method="_on_Head_body_entered"]

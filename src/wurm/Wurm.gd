@@ -40,6 +40,16 @@ func _ready():
 	_noise.lacunarity = 3.0
 	_noise.period = 50.0
 	_noise.persistence = 0.8
+	
+	var rupture = Sprite.new()
+	rupture.texture = load("res://assets/env/crack_open.png")
+	get_parent().add_child(rupture)
+	rupture.position = position
+
+func _process(delta):
+	for body in $Area2D.get_overlapping_bodies():
+		if body.is_in_group("dude"):
+			body.on_hit(self)
 
 func _integrate_forces(state):
 	if _target:
@@ -61,7 +71,3 @@ func _integrate_forces(state):
 		_segments.append(segment)
 
 """ PUBLIC """
-
-func _on_Head_body_entered(body):
-	if body.is_in_group("dude"):
-		body.on_hit(self)
