@@ -1,0 +1,62 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/screen_disclaimer/ScreenDisclaimer.gd" type="Script" id=1]
+[ext_resource path="res://assets/fonts/GUIFont.tres" type="DynamicFont" id=2]
+
+[sub_resource type="StyleBoxLine" id=1]
+color = Color( 0.478431, 0.109804, 0.294118, 1 )
+
+[node name="ScreenMenu" type="CanvasLayer"]
+script = ExtResource( 1 )
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -0.297302
+margin_bottom = -0.297302
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 90.0
+margin_top = 90.0
+margin_right = 390.0
+margin_bottom = 331.0
+rect_min_size = Vector2( 300, 0 )
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+margin_right = 300.0
+margin_bottom = 15.0
+custom_fonts/font = ExtResource( 2 )
+text = "Disclaimer"
+align = 1
+
+[node name="HSeparator" type="HSeparator" parent="CenterContainer/VBoxContainer"]
+margin_top = 19.0
+margin_right = 300.0
+margin_bottom = 23.0
+custom_styles/separator = SubResource( 1 )
+
+[node name="Label2" type="Label" parent="CenterContainer/VBoxContainer"]
+margin_top = 27.0
+margin_right = 300.0
+margin_bottom = 222.0
+custom_fonts/font = ExtResource( 2 )
+text = "This is an unfinished WIP game for Brackeys Game Jam on itch.io. 
+HTML5 performance might be poor, proper binaries for Win10, Mac, and Linux will be released on itch.io when the jam ends.
+Feedback is greatly appreciated! Please send either to Twitter (@Calneon) or itch.io (sambigos.itch.io)
+
+Thank you for playing!"
+align = 1
+autowrap = true
+
+[node name="Label3" type="Label" parent="CenterContainer/VBoxContainer"]
+margin_top = 226.0
+margin_right = 300.0
+margin_bottom = 241.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0.729412, 0.313726, 0.266667, 1 )
+text = " Click to continue."
+align = 1
+autowrap = true
