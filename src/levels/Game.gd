@@ -17,12 +17,12 @@ var _ftue = [
 	"Your primary goal is to retrieve the chest of 'heirlooms' from the well, and haul it back up. Be warned, this is usually well guarded... Good luck! "
 	
 ]
-var _ftue_stage = 0
 var _ftue_timer = 2.0
 var _showing_ftue = false
 
 """ PUBLIC """
 
+export var level_id = 0
 export var wurm_scene : PackedScene
 
 ###########
@@ -34,51 +34,58 @@ export var wurm_scene : PackedScene
 func _ready():
 	$Rope.connect("on_rope_reeled", $RopeLeft, "_on_Rope_on_rope_reeled")
 	$Rope._on_Reel_on_reel(0.0)
+	PlayerData.coins = 0
+	PlayerData.time = 0
 	
 func _process(delta):
 	if _showing_ftue:
 		_dismiss_ftue()
 	
 	PlayerData.time += delta
-	$HUD/TimeLabel.text = "%01d:%02d.%01d" % [ int(PlayerData.time / 60), int(PlayerData.time / 1) % 60, int(fmod(PlayerData.time, 1.0) * 10.0) ]
-	$HUD/ScoreLabel.text = "%d" % [ PlayerData.coins ]
+	$HUD.set_time("%01d:%02d.%01d" % [ int(PlayerData.time / 60), int(PlayerData.time / 1) % 60, int(fmod(PlayerData.time, 1.0) * 10.0) ])
+	$HUD.set_score("%d" % [ PlayerData.coins ])
 	
 	_ftue_timer -= delta
-	if _ftue_timer < 0.0 and _ftue_stage == 0:
-		_do_ftue(_ftue_stage)
+	if _ftue_timer < 0.0 and PlayerData.ftue == 0:
+		_do_ftue(PlayerData.ftue)
 		_ftue_timer = 1.0
 		
-	if _ftue_timer < 0.0 and _ftue_stage == 1:
-		_do_ftue(_ftue_stage)
+	if _ftue_timer < 0.0 and PlayerData.ftue == 1:
+		_do_ftue(PlayerData.ftue)
 		
-	if $Rope.get_percentage() > 0.2 and _ftue_stage == 2 and not _showing_ftue:
-		_do_ftue(_ftue_stage)
+	if $Rope.get_percentage() > 0.2 and PlayerData.ftue == 2 and not _showing_ftue:
+		_do_ftue(PlayerData.ftue)
 		
-	if $Rope.get_dude().has_touched_ground() and _ftue_stage == 3 and not _showing_ftue:
-		_do_ftue(_ftue_stage)
+	if $Rope.get_dude().has_touched_ground() and PlayerData.ftue == 3 and not _showing_ftue:
+		_do_ftue(PlayerData.ftue)
 		
-	if PlayerData.coins > 0 and _ftue_stage == 4 and not _showing_ftue:
-		_do_ftue(_ftue_stage)
+	if PlayerData.coins > 0 and PlayerData.ftue == 4 and not _showing_ftue:
+		_do_ftue(PlayerData.ftue)
 		_ftue_timer = 8.0
 		
-	if _ftue_timer < 0.0 and _ftue_stage == 5 and not _showing_ftue:
-		_do_ftue(_ftue_stage)
+	if _ftue_timer < 0.0 and PlayerData.ftue == 5 and not _showing_ftue:
+		_do_ftue(PlayerData.ftue)
 	
 func _do_ftue(stage):
 	if PlayerData.current_level != 1:
 		return
 	
-	$FTUE.get_children()[_ftue_stage].set_text(_ftue[_ftue_stage])
+	$FTUE.get_children()[PlayerData.ftue].set_text(_ftue[PlayerData.ftue])
 	get_tree().paused = true
-	_ftue_stage += 1
+	PlayerData.complete_ftue_stage(PlayerData.ftue)
 	_showing_ftue = true
 	
 func _dismiss_ftue():
-	$FTUE.get_children()[_ftue_stage - 1].hide()
+	$FTUE.get_children()[PlayerData.ftue - 1].hide()
 	_showing_ftue = false
 	
 func _input(event):
 	pass
+	
+func _on_level_complete():
+	PlayerData.complete_level(level_id, PlayerData.coins, PlayerData.time)
+	AudioPlayer.on_complete()
+	get_tree().change_scene("res://src/screen_levelselect/ScreenLevelSelect.tscn")
 	
 func _on_chest_pick():
 	if $WurmSpawn:
@@ -97,3 +104,7 @@ func _on_dude_hurt():
 
 func get_chest():
 	return $Chest
+
+func _on_ChestArea_body_entered(body):
+	if body.is_in_group("chest"):
+		_on_level_complete()

@@ -40,18 +40,22 @@ func _process(delta):
 
 """ PUBLIC """
 
+func set_time(time):
+	$TimeLabel.text = time
+
+func set_score(score):
+	$ScoreLabel.text = score
+	
 func yell():
 	_yell_timer = YELL_SHOW_TIME
 	$Yell.rect_position.x = _rng.randf_range(150.0, 250.0)
-	match _rng.randi_range(0, 3):
+	match _rng.randi_range(0, 2):
 		0:
 			$Yell.set_text("OTHER WAY!", true)
 		1:
 			$Yell.set_text("TURN AROUND!", true)
 		2:
 			$Yell.set_text("NOT THERE!", true)
-		3:
-			$Yell.set_text("OH MY GOD!", true)
 			
 func dude_text(target):
 	_dude_text_timer = YELL_SHOW_TIME
@@ -59,7 +63,7 @@ func dude_text(target):
 	$DudeText.rect_position = _dude.global_position - $DudeText.rect_size * 0.5 - Vector2(0.0, 35.0)
 	match _rng.randi_range(0, 3):
 		0:
-			$DudeText.set_text("Oof!", true)
+			$DudeText.set_text("Oof! Ouch!", true)
 		1:
 			$DudeText.set_text("Sir that hurt!", true)
 		2:

@@ -55,6 +55,7 @@ func _integrate_forces(state):
 
 func _on_Coin_body_entered(body):
 	if body.is_in_group("dude") and _can_collect():
+		AudioPlayer.on_coin()
 		self.queue_free()
 		PlayerData.coins += 1
 		

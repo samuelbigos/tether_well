@@ -103,6 +103,7 @@ func _on_chest_pick(chest):
 	add_child(joint)
 	emit_signal("on_chest_pick")
 	_chest_picked = true
+	$ChestAudio.play()
 	
 func _is_invincible():
 	return _invincibility_timer > 0.0
@@ -149,6 +150,7 @@ func on_hit(hitter):
 	if _is_invincible():
 		return
 		
+	AudioPlayer.on_hit()
 	if PlayerData.coins > 0:
 		_invincibility_timer = INVINCIBILITY_TIME
 		_flashing = true

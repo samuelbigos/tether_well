@@ -1,7 +1,6 @@
 extends CanvasLayer
 class_name ScreenMenu
 """
-Does XXX.
 """
 
 ###########
@@ -26,6 +25,7 @@ func _ready():
 		$CenterContainer/VBoxContainer/LevelSelect.disabled = true
 	
 func _on_Play_pressed():
+	AudioPlayer.on_click()
 	match PlayerData.current_level:
 		0: get_tree().change_scene("res://src/screen_intro/ScreenIntro.tscn")
 		1: get_tree().change_scene("res://src/levels/Level_1.tscn")
@@ -33,12 +33,15 @@ func _on_Play_pressed():
 		3: get_tree().change_scene("res://src/levels/Level_3.tscn")
 
 func _on_Level_Select_pressed():
-	pass # Replace with function body.
+	AudioPlayer.on_click()
+	get_tree().change_scene("res://src/screen_levelselect/ScreenLevelSelect.tscn")
 
 func _on_Options_pressed():
-	pass # Replace with function body.
+	AudioPlayer.on_click()
+	get_tree().change_scene("res://src/screen_options/ScreenOptions.tscn")
 
 func _on_Exit_pressed():
+	AudioPlayer.on_click()
 	pass # Replace with function body.
 
 """ PUBLIC """

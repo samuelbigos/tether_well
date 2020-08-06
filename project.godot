@@ -29,6 +29,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/HUD.gd"
 }, {
+"base": "MarginContainer",
+"class": "LevelWidget",
+"language": "GDScript",
+"path": "res://src/screen_levelselect/LevelWidget.gd"
+}, {
 "base": "StaticBody2D",
 "class": "Platform",
 "language": "GDScript",
@@ -65,9 +70,19 @@ _global_script_classes=[ {
 "path": "res://src/screen_intro/ScreenIntro.gd"
 }, {
 "base": "CanvasLayer",
+"class": "ScreenLevelSelect",
+"language": "GDScript",
+"path": "res://src/screen_levelselect/ScreenLevelSelect.gd"
+}, {
+"base": "CanvasLayer",
 "class": "ScreenMenu",
 "language": "GDScript",
 "path": "res://src/screen_menu/ScreenMenu.gd"
+}, {
+"base": "CanvasLayer",
+"class": "ScreenOptions",
+"language": "GDScript",
+"path": "res://src/screen_options/ScreenOptions.gd"
 }, {
 "base": "NinePatchRect",
 "class": "SpeechBubble",
@@ -99,6 +114,7 @@ _global_script_class_icons={
 "Coin": "",
 "Dude": "",
 "HUD": "",
+"LevelWidget": "",
 "Platform": "",
 "Reel": "",
 "Rope": "",
@@ -106,7 +122,9 @@ _global_script_class_icons={
 "RopeSegment": "",
 "SaveGame": "",
 "ScreenIntro": "",
+"ScreenLevelSelect": "",
 "ScreenMenu": "",
+"ScreenOptions": "",
 "SpeechBubble": "",
 "Spike": "",
 "Wurm": "",
@@ -126,6 +144,7 @@ config/save_version=0
 PlayerData="*res://src/PlayerData.gd"
 SaveManager="*res://src/SaveManager.gd"
 PauseController="*res://src/PauseController.gd"
+AudioPlayer="*res://src/AudioPlayer.tscn"
 
 [display]
 

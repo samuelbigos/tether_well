@@ -17,7 +17,7 @@ var _noise = OpenSimplexNoise.new()
 
 """ PUBLIC """
 
-const MOVE_SPEED = 20.0
+const MOVE_SPEED = 25.0
 const SEGMENT_LENGTH = 14
 const RAND_MOVE_INFLUENCE = 2.0
 
@@ -45,6 +45,8 @@ func _ready():
 	rupture.texture = load("res://assets/env/crack_open.png")
 	get_parent().add_child(rupture)
 	rupture.position = position
+	
+	AudioPlayer.on_wurm()
 
 func _process(delta):
 	for body in $Area2D.get_overlapping_bodies():

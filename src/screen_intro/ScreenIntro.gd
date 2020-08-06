@@ -70,7 +70,7 @@ var _dialogue = [
 """ PUBLIC """
 
 var _dialogue_tracker = 0
-var _waiting_on_input = false
+var _queue_dialogue = false
 
 ###########
 # METHODS #
@@ -79,7 +79,7 @@ var _waiting_on_input = false
 """ PRIVATE """
 
 func _ready():
-	var walk_speed = 100
+	var walk_speed = 50
 	var interp_time = abs($SirTarget.position.x - $Sir.position.x) / walk_speed
 	$Sir/Tween.interpolate_property($Sir, "position",
 		$Sir.position, $SirTarget.position, interp_time,
@@ -95,22 +95,22 @@ func _ready():
 	
 	$CanvasLayer/SirSpeech.visible = false
 	$CanvasLayer/DudeSpeech.visible = false
-
-func _input(event):
-	if event.is_action_pressed("ui_next") and _waiting_on_input:
-		if _dialogue_tracker >= _dialogue.size():
-			_intro_complete()
-		else:
-			_setup_dialogue()
-			_waiting_on_input = false
+	
+	$CanvasLayer/SirSpeech.connect("on_dismissed", self, "_on_SpeechBubble_on_dismissed")
+	$CanvasLayer/DudeSpeech.connect("on_dismissed", self, "_on_SpeechBubble_on_dismissed")
+	
+func _process(delta):
+	if _queue_dialogue:
+		_setup_dialogue()
+		_queue_dialogue = false
 			
 func _intro_complete():
 	get_tree().change_scene("res://src/levels/Level_1.tscn")
-	PlayerData.current_level = 1
+	PlayerData.complete_level(0, 0, 0)
 	SaveManager.do_save()
 
 func _tween_complete():
-	_setup_dialogue()
+	_queue_dialogue = true
 	
 func _setup_dialogue():
 	match _dialogue[_dialogue_tracker].speaker:
@@ -122,8 +122,11 @@ func _setup_dialogue():
 			$CanvasLayer/SirSpeech.visible = false
 	_dialogue_tracker += 1
 
-func _on_SirSpeech_text_complete():
-	_waiting_on_input = true
+func _on_SpeechBubble_on_dismissed():
+	if _dialogue_tracker >= _dialogue.size():
+		_intro_complete()
+	else:
+		_queue_dialogue = true
 	
 """ PUBLIC """
 

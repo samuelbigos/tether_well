@@ -16,10 +16,11 @@ var _complete = false
 var _blink_count = 0
 var _blink_timer = 0.0
 var _is_yell = false
+var _rng = RandomNumberGenerator.new()
 
 """ PUBLIC """
 
-signal text_complete
+signal on_dismissed
 
 export var char_time = 0.045
 export var blink_time = 0.2
@@ -33,6 +34,7 @@ export var blink_time = 0.2
 func _ready():
 	$VBoxContainer/Text.text = ""
 	_complete = true
+	_rng.randomize()
 	
 func _input(event):
 	if not visible:
@@ -48,7 +50,8 @@ func _input(event):
 		if not _complete:
 			_complete = true
 			$VBoxContainer/Text.text = _text
-			emit_signal("text_complete")	
+		else:
+			emit_signal("on_dismissed")
 	
 func _process(delta):
 	if _complete and _text.length() > 0 and not _is_yell:
@@ -66,8 +69,13 @@ func _process(delta):
 		if _type_timer < 0.0:
 			$VBoxContainer/Text.text += _text[_text_index]
 			_text_index += 1
+			
+			if $Talking and _rng.randi_range(0, 1):
+				var rand = _rng.randi_range(0, 3)
+				var audio = $Talking.get_children()[rand]
+				audio.play()
+			
 			if _text_index >= _text.length():
-				emit_signal("text_complete")
 				_complete = true
 			else:
 				_type_timer = char_time

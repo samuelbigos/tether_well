@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/env/tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://src/env/Chest.tscn" type="PackedScene" id=2]
@@ -13,8 +13,12 @@
 [ext_resource path="res://assets/1px.png" type="Texture" id=11]
 [ext_resource path="res://src/levels/Game.gd" type="Script" id=12]
 
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 56.3972, 22.6406 )
+
 [node name="Game" type="Node2D"]
 script = ExtResource( 12 )
+level_id = 2
 wurm_scene = ExtResource( 5 )
 
 [node name="Rope" parent="." instance=ExtResource( 9 )]
@@ -107,7 +111,7 @@ width = 10
 position = Vector2( 385.82, -3 )
 width = 10
 
-[node name="CanvasLayer" parent="." instance=ExtResource( 3 )]
+[node name="HUD" parent="." instance=ExtResource( 3 )]
 
 [node name="Reel" parent="." instance=ExtResource( 4 )]
 visible = false
@@ -130,5 +134,12 @@ centered = false
 
 [node name="WurmSpawn" type="Position2D" parent="."]
 position = Vector2( 129.865, 290.701 )
+
+[node name="ChestArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChestArea"]
+position = Vector2( 240, -24 )
+shape = SubResource( 1 )
 [connection signal="on_rope_reeled" from="Rope" to="RopeLeft" method="_on_Rope_on_rope_reeled"]
 [connection signal="on_reel" from="Reel" to="Rope" method="_on_Reel_on_reel"]
+[connection signal="body_entered" from="ChestArea" to="." method="_on_ChestArea_body_entered"]

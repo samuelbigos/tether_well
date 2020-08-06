@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://assets/env/tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://src/env/Chest.tscn" type="PackedScene" id=2]
@@ -15,8 +15,12 @@
 [ext_resource path="res://assets/gui/speech.png" type="Texture" id=13]
 [ext_resource path="res://src/screen_intro/SpeechBubble.gd" type="Script" id=14]
 
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 72.5087, 42.1718 )
+
 [node name="Game" type="Node2D"]
 script = ExtResource( 8 )
+level_id = 1
 wurm_scene = ExtResource( 4 )
 
 [node name="Rope" parent="." instance=ExtResource( 10 )]
@@ -345,4 +349,11 @@ autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="ChestArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChestArea"]
+position = Vector2( 237.757, -42.9194 )
+shape = SubResource( 1 )
 [connection signal="on_reel" from="Reel" to="Rope" method="_on_Reel_on_reel"]
+[connection signal="body_entered" from="ChestArea" to="." method="_on_ChestArea_body_entered"]

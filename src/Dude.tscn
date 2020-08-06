@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://src/Dude.gd" type="Script" id=1]
 [ext_resource path="res://assets/chars/player_walk.png" type="Texture" id=2]
 [ext_resource path="res://assets/chars/player_fall.png" type="Texture" id=3]
 [ext_resource path="res://assets/chars/player_die.png" type="Texture" id=4]
+[ext_resource path="res://assets/audio/Chest.wav" type="AudioStream" id=5]
 
 [sub_resource type="PhysicsMaterial" id=1]
 
@@ -12,40 +13,40 @@ radius = 4.19008
 height = 5.74522
 
 [sub_resource type="AtlasTexture" id=3]
-atlas = ExtResource( 3 )
+atlas = ExtResource( 2 )
 region = Rect2( 0, 0, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=4]
-atlas = ExtResource( 3 )
+atlas = ExtResource( 2 )
 region = Rect2( 16, 0, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 2 )
-region = Rect2( 0, 0, 16, 16 )
+region = Rect2( 32, 0, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 2 )
-region = Rect2( 16, 0, 16, 16 )
+region = Rect2( 48, 0, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=7]
-atlas = ExtResource( 2 )
-region = Rect2( 32, 0, 16, 16 )
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=8]
-atlas = ExtResource( 2 )
-region = Rect2( 48, 0, 16, 16 )
+atlas = ExtResource( 3 )
+region = Rect2( 16, 0, 16, 16 )
 
 [sub_resource type="SpriteFrames" id=9]
 animations = [ {
-"frames": [ SubResource( 3 ), SubResource( 4 ) ],
-"loop": true,
-"name": "fall",
-"speed": 10.0
-}, {
-"frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ],
+"frames": [ SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ) ],
 "loop": true,
 "name": "walk",
 "speed": 5.0
+}, {
+"frames": [ SubResource( 7 ), SubResource( 8 ) ],
+"loop": true,
+"name": "fall",
+"speed": 10.0
 } ]
 
 [node name="Dude" type="RigidBody2D" groups=[
@@ -75,5 +76,8 @@ animation = "walk"
 visible = false
 z_index = 2
 texture = ExtResource( 4 )
+
+[node name="ChestAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
 [connection signal="body_entered" from="." to="." method="_on_Dude_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_Dude_body_exited"]
