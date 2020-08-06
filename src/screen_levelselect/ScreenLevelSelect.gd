@@ -26,14 +26,14 @@ var levels = [
 		"title": "Level 3",
 		"scene": "res://src/levels/Level_3.tscn"
 	},
-	{
-		"title": "Level 4",
-		"scene": "res://src/levels/Level_4.tscn"
-	},
-	{
-		"title": "Level 5",
-		"scene": "res://src/levels/Level_5.tscn"
-	},
+	#{
+	#	"title": "Level 4",
+	#	"scene": "res://src/levels/Level_4.tscn"
+	#},
+	#{
+	#	"title": "Level 5",
+	#	"scene": "res://src/levels/Level_5.tscn"
+	#},
 ]
 
 """ PUBLIC """
@@ -69,3 +69,6 @@ func _ready():
 
 """ PUBLIC """
 
+func _on_Continue_pressed():
+	AudioPlayer.on_click()
+	get_tree().change_scene("res://src/screen_menu/ScreenMenu.tscn")

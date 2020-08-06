@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/screen_levelselect/LevelWidget.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/Button.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/screen_levelselect/ScreenLevelSelect.gd" type="Script" id=3]
 
 [node name="ScreenLevelSelect" type="CanvasLayer"]
@@ -22,3 +23,11 @@ margin_top = 160.0
 margin_right = 240.0
 margin_bottom = 160.0
 columns = 3
+
+[node name="Back" parent="." instance=ExtResource( 2 )]
+margin_left = 115.283
+margin_top = 280.701
+margin_right = 371.283
+margin_bottom = 301.701
+text = "Back"
+[connection signal="pressed" from="Back" to="." method="_on_Continue_pressed"]

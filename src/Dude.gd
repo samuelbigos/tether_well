@@ -20,6 +20,7 @@ var _death_timer = 2.0
 var _chest_picked = false
 var _has_touched_ground = false
 var _has_taken_damage = false
+var _jumping = false
 
 var coin_res = preload("res://src/env/Coin.tscn")
 	
@@ -35,6 +36,7 @@ const INVINCIBILITY_TIME = 2.5
 const INV_FLASH_TIME = 0.05
 const COIN_DROP_IMPULSE = 200.0
 const DEATH_TIME = 2.0
+const JUMP_FORCE = Vector2(400.0, -1200.0)
 
 ###########
 # METHODS #
@@ -59,7 +61,7 @@ func _process(delta):
 		if _dead:
 			_death_timer -= delta
 			if _death_timer < 0.0:
-				emit_signal("on_game_over")				
+				emit_signal("on_game_over")
 
 func _input(event):
 	if event.is_action_pressed("ui_select"):
@@ -76,8 +78,10 @@ func _integrate_forces(state):
 	state.transform = Transform2D(atan2(up.x, -up.y), state.transform.get_origin())
 	state.angular_velocity = 0.0
 	
-	if _attached_body and not _dead:
+	if _attached_body and not _dead and not _jumping:
 		state.linear_velocity = _move_dir * MOVE_SPEED
+		
+	_jumping = false
 			
 func _on_Dude_body_entered(body):
 	if body.is_in_group("platform") and body.get_global_position().y > get_global_position().y:
@@ -158,6 +162,11 @@ func on_hit(hitter):
 		_drop_coins()
 	else:
 		_on_die()
+		
+func on_jump():
+	apply_central_impulse(JUMP_FORCE * Vector2(_move_dir.x, 1.0))
+	_jumping = true
+	_attached_body = null
 
 func has_touched_ground():
 	return _has_touched_ground

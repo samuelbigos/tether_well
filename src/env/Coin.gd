@@ -20,6 +20,8 @@ const TIME_TO_COLLECT = 5.0
 const FLASH_TIME_1 = 0.1
 const FLASH_TIME_2 = 0.2
 
+export var attach = true
+
 ###########
 # METHODS #
 ###########
@@ -27,7 +29,10 @@ const FLASH_TIME_2 = 0.2
 """ PRIVATE """
 
 func _ready():
-	position.y = -16
+	if attach:
+		position.y = -16
+	else:
+		gravity_scale = 0
 	connect("body_entered", self, "_on_Coin_body_entered")
 	
 func _process(delta):

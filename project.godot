@@ -29,6 +29,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/HUD.gd"
 }, {
+"base": "Area2D",
+"class": "JumpPad",
+"language": "GDScript",
+"path": "res://src/env/JumpPad.gd"
+}, {
 "base": "MarginContainer",
 "class": "LevelWidget",
 "language": "GDScript",
@@ -114,6 +119,7 @@ _global_script_class_icons={
 "Coin": "",
 "Dude": "",
 "HUD": "",
+"JumpPad": "",
 "LevelWidget": "",
 "Platform": "",
 "Reel": "",

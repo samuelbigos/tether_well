@@ -36,7 +36,7 @@ func _ready():
 
 func _setup():
 	for child in get_children():
-		if child.is_in_group("coin") or child.is_in_group("spike"):
+		if child.is_in_group("coin") or child.is_in_group("spike") or child.is_in_group("jumppad"):
 			continue
 		child.queue_free()
 		
