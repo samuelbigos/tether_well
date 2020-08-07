@@ -78,5 +78,5 @@ func dude_text(target):
 			
 func dead():
 	get_tree().paused = true
-	$DeadPopup.visible = true
+	$DeadPopup.set_text("Steve died :(\nOh well! Click to find a new Steve.")
 	_dead = true

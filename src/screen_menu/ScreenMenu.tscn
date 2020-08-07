@@ -3,7 +3,7 @@
 [ext_resource path="res://assets/gui/tether_well.png" type="Texture" id=1]
 [ext_resource path="res://assets/fonts/GUIFont.tres" type="DynamicFont" id=2]
 [ext_resource path="res://src/screen_menu/ScreenMenu.gd" type="Script" id=3]
-[ext_resource path="res://assets/audio/Select 1.wav" type="AudioStream" id=4]
+[ext_resource path="res://assets/audio/Select 3.wav" type="AudioStream" id=4]
 [ext_resource path="res://src/Button.tscn" type="PackedScene" id=5]
 
 [node name="ScreenMenu" type="CanvasLayer"]
@@ -94,6 +94,7 @@ expand_icon = true
 [node name="ClickAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Play" to="." method="_on_Play_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Continue" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/LevelSelect" to="." method="_on_Level_Select_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Options" to="." method="_on_Options_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/About" to="." method="_on_Exit_pressed"]
