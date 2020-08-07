@@ -27,6 +27,10 @@ func get_time(): return _data["time"]
 var ftue = 0 setget , get_ftue
 func get_ftue(): return _data["ftue_stage"]
 
+var control_method = 0 setget set_control_method, get_control_method
+func set_control_method(val): _data["control_method"] = val
+func get_control_method(): return _data["control_method"]
+
 ###########
 # METHODS #
 ###########
@@ -43,6 +47,7 @@ func _do_create_new():
 	_data["coins"] = 0
 	_data["time"] = 0
 	_data["ftue_stage"] = 0
+	_data["control_method"] = -1
 	
 """ PUBLIC """
 

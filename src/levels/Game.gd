@@ -10,7 +10,7 @@ extends Node2D
 
 var _ftue = [
 	"You are a brave and couragous estate owner who has generously given the man-without-a-hat (let's call him Steve) the chance to share in great riches, the only risk being to delve into a well full of untold evils.",
-	"Steve is of simple mind, so of course you'll have to do most of the work. You can unwind and rewind the tether by holding [LEFT MOUSE] and tracing a clockwise or anti-clockwise circle. Try this now.",
+	"Steve is of simple mind, so of course you'll have to do most of the work. You can unwind and rewind the tether using the mouse buttons and the control method you chose earlier. Try this now.",
 	"The rope on the left indicates how much is left. Once you run out of rope, you won't be able to unwind any more.",
 	"Incredible. Now, Steve will wander aimlessly forward unless you yell at him by pressing [SPACEBAR]. This will cause him to turn around. Give it a try.",
 	"You found... uh I mean Steve found some gold! Well done Steve! Gold acts as a shield against damage. Here, make Steve walk into those spikes just ahead.",

@@ -16,17 +16,17 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
-margin_left = 195.0
-margin_top = 137.0
-margin_right = 285.0
-margin_bottom = 183.0
+margin_left = 179.0
+margin_top = 124.0
+margin_right = 300.0
+margin_bottom = 195.0
 alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ResetSave" type="Button" parent="CenterContainer/VBoxContainer"]
-margin_right = 90.0
+margin_right = 121.0
 margin_bottom = 21.0
 focus_mode = 0
 custom_fonts/font = ExtResource( 2 )
@@ -37,10 +37,23 @@ text = "Reset Save"
 flat = true
 expand_icon = true
 
-[node name="Back" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="Controls" type="Button" parent="CenterContainer/VBoxContainer"]
 margin_top = 25.0
-margin_right = 90.0
+margin_right = 121.0
 margin_bottom = 46.0
+focus_mode = 0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0.937255, 0.976471, 0.839216, 1 )
+custom_colors/font_color_hover = Color( 0.729412, 0.313726, 0.266667, 1 )
+enabled_focus_mode = 0
+text = "Control Method"
+flat = true
+expand_icon = true
+
+[node name="Back" type="Button" parent="CenterContainer/VBoxContainer"]
+margin_top = 50.0
+margin_right = 121.0
+margin_bottom = 71.0
 focus_mode = 0
 custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0.937255, 0.976471, 0.839216, 1 )
@@ -50,4 +63,5 @@ text = "Back"
 flat = true
 expand_icon = true
 [connection signal="pressed" from="CenterContainer/VBoxContainer/ResetSave" to="." method="_on_ResetSave_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Controls" to="." method="_on_Controls_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Back" to="." method="_on_Back_pressed"]

@@ -29,6 +29,7 @@ rect_min_size = Vector2( 300, 0 )
 margin_right = 300.0
 margin_bottom = 15.0
 custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0.729412, 0.313726, 0.266667, 1 )
 text = "Disclaimer"
 align = 1
 
@@ -43,6 +44,7 @@ margin_top = 27.0
 margin_right = 300.0
 margin_bottom = 222.0
 custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0.937255, 0.976471, 0.839216, 1 )
 text = "This is an unfinished WIP game for Brackeys Game Jam on itch.io. 
 HTML5 performance might be poor, proper binaries for Win10, Mac, and Linux will be released on itch.io when the jam ends.
 Feedback is greatly appreciated! Please send either to Twitter (@Calneon) or itch.io (sambigos.itch.io)
