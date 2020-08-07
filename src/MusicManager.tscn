@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/MusicManager.gd" type="Script" id=1]
+
+[node name="MusicManager" type="Node"]
+script = ExtResource( 1 )
+
+[node name="MenuMusic" type="AudioStreamPlayer" parent="."]
+
+[node name="LevelTracks" type="Node" parent="."]
+
+[node name="Intro" type="AudioStreamPlayer" parent="LevelTracks"]
+
+[node name="0" type="AudioStreamPlayer" parent="LevelTracks"]
+
+[node name="1" type="AudioStreamPlayer" parent="LevelTracks"]
+
+[node name="2" type="AudioStreamPlayer" parent="LevelTracks"]
+
+[node name="3" type="AudioStreamPlayer" parent="LevelTracks"]
+
+[node name="4" type="AudioStreamPlayer" parent="LevelTracks"]
+
+[node name="5" type="AudioStreamPlayer" parent="LevelTracks"]
+
+[node name="Credits" type="AudioStreamPlayer" parent="."]
