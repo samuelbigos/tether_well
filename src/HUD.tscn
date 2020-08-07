@@ -8,6 +8,7 @@
 [ext_resource path="res://src/Talking.tscn" type="PackedScene" id=6]
 
 [node name="HUD" type="CanvasLayer"]
+pause_mode = 2
 script = ExtResource( 5 )
 
 [node name="ScoreLabel" type="Label" parent="."]
@@ -140,3 +141,44 @@ __meta__ = {
 }
 
 [node name="Talking" parent="DudeText" instance=ExtResource( 6 )]
+
+[node name="DeadPopup" type="NinePatchRect" parent="."]
+margin_left = 129.083
+margin_top = 141.756
+margin_right = 334.083
+margin_bottom = 181.756
+texture = ExtResource( 2 )
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 7
+patch_margin_bottom = 7
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DeadPopup"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = -5.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="Label" parent="DeadPopup/VBoxContainer"]
+margin_right = 195.0
+margin_bottom = 29.0
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.105882, 0.0117647, 0.14902, 1 )
+text = "Steve died :(
+Oh well! Click to find a new Steve."
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

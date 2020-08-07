@@ -100,11 +100,15 @@ func _on_dude_change_dir():
 func _on_dude_hurt():
 	$HUD.dude_text($Rope.get_dude())
 	
+func _on_ChestArea_body_entered(body):
+	if body.is_in_group("chest"):
+		_on_level_complete()
+
+func _on_game_over():
+	$HUD.dead()
+	
 """ PUBLIC """
 
 func get_chest():
 	return $Chest
 
-func _on_ChestArea_body_entered(body):
-	if body.is_in_group("chest"):
-		_on_level_complete()

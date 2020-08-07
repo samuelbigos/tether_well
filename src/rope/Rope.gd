@@ -59,6 +59,7 @@ func _ready():
 		_dude.connect("on_chest_pick", get_parent(), "_on_chest_pick")
 		_dude.connect("on_change_dir", get_parent(), "_on_dude_change_dir")
 		_dude.connect("on_hurt", get_parent(), "_on_dude_hurt")
+		_dude.connect("on_game_over", get_parent(), "_on_game_over")
 	else:
 		for i in _rope_segments.size():
 			_rope_segments[i].gravity_scale = 0.5

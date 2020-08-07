@@ -21,6 +21,7 @@ var _chest_picked = false
 var _has_touched_ground = false
 var _has_taken_damage = false
 var _jumping = false
+var _did_emit_game_over = false
 
 var coin_res = preload("res://src/env/Coin.tscn")
 	
@@ -58,10 +59,11 @@ func _process(delta):
 			if _flash_timer < 0.0:
 				$AnimSprite.visible = !$AnimSprite.visible
 				_flash_timer = INV_FLASH_TIME
-		if _dead:
-			_death_timer -= delta
-			if _death_timer < 0.0:
-				emit_signal("on_game_over")
+	if _dead and not _did_emit_game_over:
+		_death_timer -= delta
+		if _death_timer < 0.0:
+			emit_signal("on_game_over")
+			_did_emit_game_over = true
 
 func _input(event):
 	if event.is_action_pressed("ui_select"):
@@ -120,13 +122,14 @@ func _drop_coins():
 	var angle_min = 0.5
 	var angle_max = PI - 0.5
 	for i in coin_count:
-		var angle = angle_min + ((angle_max - angle_min) / coin_count) * (i + 0.5)
+		var angle = angle_min + ((angle_max - angle_min) / max(1, coin_count - 1)) * i
 		var coin = coin_res.instance()
 		var impulse = Vector2(cos(angle), -sin(angle)).normalized() * COIN_DROP_IMPULSE
+		print(impulse)
 		coin.apply_impulse(Vector2(0.0, 0.0), impulse)
 		coin.set_was_dropped()
 		get_parent().add_child(coin)
-		coin.position = Vector2(position.x, position.y - $Collision.shape.height)
+		coin.position = position + impulse.normalized() * $Collision.shape.height
 		
 func _on_die():
 	if _dead:

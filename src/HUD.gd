@@ -13,6 +13,7 @@ var _yell_timer = 0.0
 var _dude_text_timer = 0.0
 var _dude = null
 var _rng = RandomNumberGenerator.new()
+var _dead = false
 
 """ PUBLIC """
 
@@ -37,6 +38,10 @@ func _process(delta):
 		$DudeText.hide()
 	else:
 		$DudeText.rect_position = _dude.global_position - $DudeText.rect_size * 0.5 - Vector2(0.0, 35.0)
+
+func _input(event):
+	if _dead and event.is_action_pressed("ui_next"):
+		get_tree().reload_current_scene()
 
 """ PUBLIC """
 
@@ -70,3 +75,8 @@ func dude_text(target):
 			$DudeText.set_text("I stubbed my toe", true)
 		3:
 			$DudeText.set_text("Why...", true)
+			
+func dead():
+	get_tree().paused = true
+	$DeadPopup.visible = true
+	_dead = true
