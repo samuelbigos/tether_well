@@ -1,5 +1,7 @@
 # Tether Well
 
+![Tether Well Header](promo/itch-banner.png)
+
 For up-to-date information please see the Itch.io page for this project, here: https://sambigos.itch.io/tether-well
 
 # About
