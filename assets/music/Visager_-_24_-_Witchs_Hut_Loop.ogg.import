@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Visager_-_24_-_Witchs_Hut_Loop.ogg-3d56590878136663c279ca5df922e150.oggstr"
+
+[deps]
+
+source_file="res://assets/music/Visager_-_24_-_Witchs_Hut_Loop.ogg"
+dest_files=[ "res://.import/Visager_-_24_-_Witchs_Hut_Loop.ogg-3d56590878136663c279ca5df922e150.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

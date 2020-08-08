@@ -22,6 +22,7 @@ var _has_touched_ground = false
 var _has_taken_damage = false
 var _jumping = false
 var _did_emit_game_over = false
+var _jumping_timer = 0.0
 
 var coin_res = preload("res://src/env/Coin.tscn")
 	
@@ -35,7 +36,7 @@ signal on_hurt
 const MOVE_SPEED = 25
 const INVINCIBILITY_TIME = 2.5
 const INV_FLASH_TIME = 0.05
-const COIN_DROP_IMPULSE = 200.0
+const COIN_DROP_IMPULSE = 150.0
 const DEATH_TIME = 2.0
 const JUMP_FORCE = Vector2(400.0, -1200.0)
 
@@ -64,6 +65,10 @@ func _process(delta):
 		if _death_timer < 0.0:
 			emit_signal("on_game_over")
 			_did_emit_game_over = true
+		
+	_jumping_timer -= delta	
+	if _jumping and _jumping_timer < 0.0:
+		_jumping = false
 
 func _input(event):
 	if event.is_action_pressed("ui_select"):
@@ -79,11 +84,13 @@ func _integrate_forces(state):
 	var transform = Transform(state.transform)
 	state.transform = Transform2D(atan2(up.x, -up.y), state.transform.get_origin())
 	state.angular_velocity = 0.0
+		
+	if _attached_body and _attached_body.get_global_position().y < get_global_position().y:
+		_attached_body = null
 	
 	if _attached_body and not _dead and not _jumping:
-		state.linear_velocity = _move_dir * MOVE_SPEED
+		state.linear_velocity.x = _move_dir.x * MOVE_SPEED
 		
-	_jumping = false
 			
 func _on_Dude_body_entered(body):
 	if body.is_in_group("platform") and body.get_global_position().y > get_global_position().y:
@@ -109,6 +116,7 @@ func _on_chest_pick(chest):
 	add_child(joint)
 	emit_signal("on_chest_pick")
 	_chest_picked = true
+	$ChestAudio.volume_db = AudioPlayer._volumes[PlayerData.get("effects")]
 	$ChestAudio.play()
 	
 func _is_invincible():
@@ -125,7 +133,6 @@ func _drop_coins():
 		var angle = angle_min + ((angle_max - angle_min) / max(1, coin_count - 1)) * i
 		var coin = coin_res.instance()
 		var impulse = Vector2(cos(angle), -sin(angle)).normalized() * COIN_DROP_IMPULSE
-		print(impulse)
 		coin.apply_impulse(Vector2(0.0, 0.0), impulse)
 		coin.set_was_dropped()
 		get_parent().add_child(coin)
@@ -167,8 +174,10 @@ func on_hit(hitter):
 		_on_die()
 		
 func on_jump():
+	linear_velocity = Vector2()
 	apply_central_impulse(JUMP_FORCE * Vector2(_move_dir.x, 1.0))
 	_jumping = true
+	_jumping_timer = 0.25
 	_attached_body = null
 
 func has_touched_ground():

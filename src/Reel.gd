@@ -47,14 +47,22 @@ func _process(delta):
 			
 	elif PlayerData.control_method == 0:
 		if Input.is_action_pressed("game_unwind"):
+			position = get_global_mouse_position()
+			var reel_delta = MOUSE_REEL_SPEED * delta
+			rotation += reel_delta
+			emit_signal("on_reel", -reel_delta)
 			visible = true
-			emit_signal("on_reel", -MOUSE_REEL_SPEED * delta)
+			
 		if Input.is_action_just_released("game_unwind"):
 			visible = false
 			
 		if Input.is_action_pressed("game_rewind"):
+			position = get_global_mouse_position()
+			var reel_delta = MOUSE_REEL_SPEED * delta
+			rotation -= reel_delta
+			emit_signal("on_reel", reel_delta)
 			visible = true
-			emit_signal("on_reel", MOUSE_REEL_SPEED * delta)
+			
 		if Input.is_action_just_released("game_rewind"):
 			visible = false
 		

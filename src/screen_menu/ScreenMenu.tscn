@@ -87,7 +87,7 @@ custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0.937255, 0.976471, 0.839216, 1 )
 custom_colors/font_color_hover = Color( 0.729412, 0.313726, 0.266667, 1 )
 enabled_focus_mode = 0
-text = "About"
+text = "Credits"
 flat = true
 expand_icon = true
 
@@ -97,4 +97,4 @@ stream = ExtResource( 4 )
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Continue" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/LevelSelect" to="." method="_on_Level_Select_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Options" to="." method="_on_Options_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/About" to="." method="_on_Exit_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/About" to="." method="_on_About_pressed"]

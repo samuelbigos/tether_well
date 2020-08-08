@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Visager_-_20_-_Factory_Time_Loop.ogg-d5fc3b500885fc3a797e71f182570092.oggstr"
+
+[deps]
+
+source_file="res://assets/music/Visager_-_20_-_Factory_Time_Loop.ogg"
+dest_files=[ "res://.import/Visager_-_20_-_Factory_Time_Loop.ogg-d5fc3b500885fc3a797e71f182570092.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

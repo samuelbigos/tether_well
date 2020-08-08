@@ -9,12 +9,16 @@ Singleton that handles playing music.
 
 """ PRIVATE """
 
-var _battle_tracks = []
-var _menu_tracks = []
-var _playing_battle = false
-var _playing_menu = false
 var _playing = null
-var _enabled = true
+var _track = ""
+var _volumes = [
+	-100,
+	-25,
+	-20,
+	-15,
+	-10,
+	-5
+]
 
 """ PUBLIC """
 
@@ -25,52 +29,45 @@ var _enabled = true
 """ PRIVATE """
 
 func _ready():
-	for track in $Battle.get_children():
-		_battle_tracks.append(track)
-		
-	for track in $Menu.get_children():
-		_menu_tracks.append(track)
+	pass
 		
 func _on_track_finished():
-	if _playing_battle:
-		play_battle()
-	if _playing_menu:
-		play_menu()
+	pass
 	
 """ PUBLIC """
+
+func set_volume(val):
+	_playing.volume_db = _volumes[val]
 
 func is_playing():
 	return _playing != null
 	
-func play_battle():
-	stop_play()
-	var index = Globals.rng.randi_range(0, _battle_tracks.size() - 1)
-	_playing = _battle_tracks[index]
-	_playing.connect("finished", self, "on_track_finished")
-	_playing.play()
-	_playing_battle = true
-	
-func play_menu(track = -1):
-	stop_play()
-	if track == -1:
-		track = Globals.rng.randi_range(0, _menu_tracks.size() - 1)
-	_playing = _menu_tracks[track]
-	_playing.connect("finished", self, "on_track_finished")
-	_playing.play()
-	_playing_menu = true
-	
-func stop_play():
-	if _playing:
-		_playing.disconnect("finished", self, "on_track_finished")
-		_playing.stop()
-	_playing = null
-
-func set_enabled(enabled):
-	_enabled = enabled
-	if _enabled:
-		play_menu(1)
-	else:
-		stop_play()
+func do_play(track):
+	if _track == track:
+		return
 		
-func get_enabled():
-	return _enabled
+	if _playing:
+		_playing.stop()
+		
+	match track:
+		"menu":
+			_playing = $MenuMusic
+		"intro":
+			_playing = $LevelTracks/Intro
+		"1":
+			_playing = $LevelTracks/Level1
+		"2":
+			_playing = $LevelTracks/Level2
+		"3":
+			_playing = $LevelTracks/Level3
+		"4":
+			_playing = $LevelTracks/Level4
+		"5":
+			_playing = $LevelTracks/Level5
+		"credits":
+			_playing = $Credits
+		
+	_track = track	
+	_playing.connect("finished", self, "_on_track_finished")
+	_playing.volume_db = _volumes[PlayerData.get("music")]
+	_playing.play()

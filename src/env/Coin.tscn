@@ -3,9 +3,9 @@
 [ext_resource path="res://assets/items/coin.png" type="Texture" id=1]
 [ext_resource path="res://src/env/Coin.gd" type="Script" id=2]
 
-[sub_resource type="CapsuleShape2D" id=7]
+[sub_resource type="CapsuleShape2D" id=1]
 radius = 4.20826
-height = 11.7425
+height = 5.25342
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 1 )
@@ -42,10 +42,11 @@ contact_monitor = true
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -4 )
-shape = SubResource( 7 )
+position = Vector2( 0, -1.70572 )
+shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 6 )
+frame = 2
 playing = true
 [connection signal="body_entered" from="." to="." method="_on_Coin_body_entered"]

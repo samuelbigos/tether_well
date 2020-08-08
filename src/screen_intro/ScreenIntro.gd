@@ -99,6 +99,8 @@ func _ready():
 	$CanvasLayer/SirSpeech.connect("on_dismissed", self, "_on_SpeechBubble_on_dismissed")
 	$CanvasLayer/DudeSpeech.connect("on_dismissed", self, "_on_SpeechBubble_on_dismissed")
 	
+	MusicManager.do_play("intro")
+	
 func _process(delta):
 	if _queue_dialogue:
 		_setup_dialogue()

@@ -1,0 +1,198 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://assets/env/tileset.tres" type="TileSet" id=1]
+[ext_resource path="res://src/env/Chest.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/HUD.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/Reel.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/wurm/Wurm.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/env/Spike.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/env/Platform.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/env/Coin.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/rope/Rope.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/RopeLeft.gd" type="Script" id=10]
+[ext_resource path="res://assets/1px.png" type="Texture" id=11]
+[ext_resource path="res://src/levels/Game.gd" type="Script" id=12]
+[ext_resource path="res://src/env/JumpPad.tscn" type="PackedScene" id=13]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 56.3972, 22.6406 )
+
+[node name="Game" type="Node2D"]
+script = ExtResource( 12 )
+level_id = 5
+wurm_scene = ExtResource( 5 )
+
+[node name="Rope" parent="." instance=ExtResource( 9 )]
+position = Vector2( 239.863, -497.168 )
+rope_segments = 74
+
+[node name="TileMap" type="TileMap" parent="."]
+z_index = -1
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 20, 20 )
+collision_friction = 0.1
+collision_layer = 3
+collision_mask = 3
+format = 1
+tile_data = PoolIntArray( -1638391, 3, 0, -1638386, 4, 0, -1572855, 3, 0, -1572850, 4, 0, -1507319, 3, 0, -1507314, 4, 0, -1441783, 3, 0, -1441778, 4, 0, -1376247, 3, 0, -1376242, 4, 0, -1310711, 3, 0, -1310706, 4, 0, -1245175, 3, 0, -1245170, 4, 0, -1179639, 3, 0, -1179634, 4, 0, -1114103, 3, 0, -1114098, 4, 0, -1048567, 3, 0, -1048562, 4, 0, -983031, 3, 0, -983026, 4, 0, -917495, 3, 0, -917490, 4, 0, -851959, 3, 0, -851954, 4, 0, -786423, 3, 0, -786418, 4, 0, -720887, 3, 0, -720882, 4, 0, -655351, 3, 0, -655346, 4, 0, -589815, 3, 0, -589810, 4, 0, -524279, 3, 0, -524274, 4, 0, -458743, 3, 0, -458738, 4, 0, -393207, 3, 0, -393202, 4, 0, -327671, 3, 0, -327666, 4, 0, -262135, 3, 0, -262130, 4, 0, -196599, 3, 0, -196594, 4, 0, -131063, 3, 0, -131058, 4, 0, -65527, 3, 0, -65522, 4, 0, 4, 3, 0, 19, 4, 0, 65540, 3, 0, 65551, 5, 0, 65555, 4, 0, 131076, 3, 0, 131091, 4, 0, 196612, 3, 0, 196617, 3, 0, 196625, 5, 0, 196627, 4, 0, 262148, 3, 0, 262153, 3, 0, 262163, 4, 0, 327684, 3, 0, 327689, 4, 0, 327699, 4, 0, 393220, 3, 0, 393225, 4, 0, 393235, 4, 0, 458756, 3, 0, 458761, 4, 0, 458771, 4, 0, 524292, 3, 0, 524297, 4, 0, 524307, 4, 0, 589828, 3, 0, 589833, 4, 0, 589843, 4, 0, 655364, 3, 0, 655369, 4, 0, 655379, 4, 0, 720900, 3, 0, 720902, 3, 0, 720905, 4, 0, 720914, 4, 0, 786436, 3, 0, 786438, 3, 0, 786450, 4, 0, 851972, 3, 0, 851974, 3, 0, 851986, 4, 0, 917508, 3, 0, 917510, 3, 0, 917522, 4, 0, 983044, 3, 0, 983059, 4, 0, 1048580, 3, 0, 1048595, 4, 0 )
+
+[node name="Platform4" parent="." instance=ExtResource( 7 )]
+position = Vector2( 242.594, 302.41 )
+width = 14
+
+[node name="JumpPad" parent="Platform4" instance=ExtResource( 13 )]
+position = Vector2( 78.4105, -20.4531 )
+
+[node name="Spike" parent="Platform4" instance=ExtResource( 6 )]
+position = Vector2( 100.375, -20.3059 )
+
+[node name="Spike2" parent="Platform4" instance=ExtResource( 6 )]
+position = Vector2( -33.1018, -20.5208 )
+
+[node name="Coin" parent="Platform4" instance=ExtResource( 8 )]
+position = Vector2( 5.15906, -17.1571 )
+
+[node name="Coin2" parent="Platform4" instance=ExtResource( 8 )]
+position = Vector2( 17.7725, -17.998 )
+
+[node name="Coin3" parent="Platform4" instance=ExtResource( 8 )]
+position = Vector2( 30.8064, -17.998 )
+
+[node name="Chest" parent="." instance=ExtResource( 2 )]
+position = Vector2( 361.842, 196.666 )
+
+[node name="Platform6" parent="." instance=ExtResource( 7 )]
+position = Vector2( 90.308, 0 )
+width = 10
+
+[node name="Platform7" parent="." instance=ExtResource( 7 )]
+position = Vector2( 389.596, 0 )
+width = 10
+
+[node name="HUD" parent="." instance=ExtResource( 3 )]
+
+[node name="Reel" parent="." instance=ExtResource( 4 )]
+visible = false
+z_index = 2
+
+[node name="RopeLeft" type="Node2D" parent="."]
+position = Vector2( 27.594, 18.08 )
+script = ExtResource( 10 )
+
+[node name="End" type="Position2D" parent="RopeLeft"]
+position = Vector2( 0, 285.924 )
+
+[node name="Cover" type="Sprite" parent="RopeLeft"]
+modulate = Color( 0.105882, 0.0117647, 0.14902, 1 )
+position = Vector2( -8.89928, 285.972 )
+scale = Vector2( 12.9317, 301.994 )
+z_index = 1
+texture = ExtResource( 11 )
+centered = false
+
+[node name="WurmSpawns" type="Node2D" parent="."]
+
+[node name="Wurm1" type="Position2D" parent="WurmSpawns"]
+position = Vector2( 352.432, 70.6903 )
+
+[node name="Wurm2" type="Position2D" parent="WurmSpawns"]
+position = Vector2( 309.476, 30.9033 )
+
+[node name="ChestArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChestArea"]
+position = Vector2( 240, -24 )
+shape = SubResource( 1 )
+
+[node name="Platform" parent="." instance=ExtResource( 7 )]
+position = Vector2( 169.058, 61.1414 )
+width = 2
+
+[node name="Platform2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 283.162, 102.882 )
+width = 10
+
+[node name="JumpPad" parent="Platform2" instance=ExtResource( 13 )]
+position = Vector2( -11.3264, -19.3265 )
+
+[node name="Platform3" parent="." instance=ExtResource( 7 )]
+position = Vector2( 342.154, 49.5534 )
+width = 4
+
+[node name="Coin" parent="Platform3" instance=ExtResource( 8 )]
+position = Vector2( 26.5153, -18.1956 )
+
+[node name="Coin2" parent="Platform3" instance=ExtResource( 8 )]
+position = Vector2( 12.8292, -17.7236 )
+
+[node name="Coin3" parent="Platform3" instance=ExtResource( 8 )]
+position = Vector2( -0.856995, -19.1395 )
+
+[node name="Platform5" parent="." instance=ExtResource( 7 )]
+position = Vector2( 367.587, 213.316 )
+width = 3
+
+[node name="Platform8" parent="." instance=ExtResource( 7 )]
+position = Vector2( 237.856, 245.407 )
+width = 5
+
+[node name="JumpPad" parent="Platform8" instance=ExtResource( 13 )]
+position = Vector2( 45.8649, -20.5552 )
+
+[node name="Coin" parent="Platform8" instance=ExtResource( 8 )]
+position = Vector2( 22.0894, -17.7563 )
+
+[node name="Coin2" parent="Platform8" instance=ExtResource( 8 )]
+position = Vector2( 10.3169, -17.7563 )
+
+[node name="Coin3" parent="Platform8" instance=ExtResource( 8 )]
+position = Vector2( -1.03525, -17.7563 )
+
+[node name="Coin4" parent="Platform8" instance=ExtResource( 8 )]
+position = Vector2( -13.6487, -17.3358 )
+
+[node name="Coin5" parent="Platform8" instance=ExtResource( 8 )]
+position = Vector2( -26.6826, -17.3358 )
+
+[node name="Platform9" parent="." instance=ExtResource( 7 )]
+position = Vector2( 244.199, 194.553 )
+
+[node name="Coin" parent="Platform9" instance=ExtResource( 8 )]
+position = Vector2( 0.190033, -15.6744 )
+
+[node name="Coin" parent="." instance=ExtResource( 8 )]
+position = Vector2( 312.081, 244.469 )
+attach = false
+
+[node name="Coin2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 315.865, 257.082 )
+attach = false
+
+[node name="Coin3" parent="." instance=ExtResource( 8 )]
+position = Vector2( 307.036, 231.856 )
+attach = false
+
+[node name="Platform10" parent="." instance=ExtResource( 7 )]
+position = Vector2( 110.266, 125.903 )
+
+[node name="Coin" parent="Platform10" instance=ExtResource( 8 )]
+position = Vector2( 2.94313, -16.8179 )
+
+[node name="Platform11" parent="." instance=ExtResource( 7 )]
+position = Vector2( 167.447, 167.527 )
+
+[node name="Coin" parent="Platform11" instance=ExtResource( 8 )]
+position = Vector2( -3.05176e-05, -15.9771 )
+
+[node name="Platform12" parent="." instance=ExtResource( 7 )]
+position = Vector2( 120.777, 215.458 )
+width = 2
+
+[node name="Coin" parent="Platform12" instance=ExtResource( 8 )]
+position = Vector2( -4.62498, -15.1361 )
+
+[node name="Coin2" parent="Platform12" instance=ExtResource( 8 )]
+position = Vector2( 7.14758, -15.5566 )
+[connection signal="on_rope_reeled" from="Rope" to="RopeLeft" method="_on_Rope_on_rope_reeled"]
+[connection signal="on_reel" from="Reel" to="Rope" method="_on_Reel_on_reel"]
+[connection signal="body_entered" from="ChestArea" to="." method="_on_ChestArea_body_entered"]

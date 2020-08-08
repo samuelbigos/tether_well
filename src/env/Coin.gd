@@ -33,6 +33,8 @@ func _ready():
 		position.y = -16
 	else:
 		gravity_scale = 0
+		linear_damp = 999999
+	disconnect("body_entered", self, "_on_Coin_body_entered")
 	connect("body_entered", self, "_on_Coin_body_entered")
 	
 func _process(delta):

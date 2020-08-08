@@ -26,14 +26,14 @@ var levels = [
 		"title": "Level 3",
 		"scene": "res://src/levels/Level_3.tscn"
 	},
-	#{
-	#	"title": "Level 4",
-	#	"scene": "res://src/levels/Level_4.tscn"
-	#},
-	#{
-	#	"title": "Level 5",
-	#	"scene": "res://src/levels/Level_5.tscn"
-	#},
+	{
+		"title": "Level 4",
+		"scene": "res://src/levels/Level_4.tscn"
+	},
+	{
+		"title": "Level 5",
+		"scene": "res://src/levels/Level_5.tscn"
+	},
 ]
 
 """ PUBLIC """

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Visager_-_18_-_Royal_Entrance_Loop.ogg-f370afb038cbc2ee8634b26ff4a02cd5.oggstr"
+
+[deps]
+
+source_file="res://assets/music/Visager_-_18_-_Royal_Entrance_Loop.ogg"
+dest_files=[ "res://.import/Visager_-_18_-_Royal_Entrance_Loop.ogg-f370afb038cbc2ee8634b26ff4a02cd5.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

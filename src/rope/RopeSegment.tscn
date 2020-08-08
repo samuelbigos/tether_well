@@ -7,7 +7,7 @@
 friction = 0.0
 
 [sub_resource type="CapsuleShape2D" id=2]
-radius = 0.5
+radius = 1.51568
 height = 7.0
 
 [node name="RopeSegment" type="RigidBody2D"]
@@ -23,11 +23,11 @@ __meta__ = {
 }
 
 [node name="Collision" type="CollisionShape2D" parent="."]
-position = Vector2( -0.0423384, -3.5444 )
+position = Vector2( -0.0470324, -5.06672 )
 shape = SubResource( 2 )
 
 [node name="Pin" type="PinJoint2D" parent="."]
-position = Vector2( -0.065691, -7.039 )
+position = Vector2( 0.0198574, -10.1833 )
 bias = 0.5
 softness = 0.5
 

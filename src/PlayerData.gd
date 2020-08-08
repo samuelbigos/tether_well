@@ -29,7 +29,9 @@ func get_ftue(): return _data["ftue_stage"]
 
 var control_method = 0 setget set_control_method, get_control_method
 func set_control_method(val): _data["control_method"] = val
-func get_control_method(): return _data["control_method"]
+func get_control_method(): 
+	if _data.has("control_method"): return _data["control_method"]
+	else: return -1
 
 ###########
 # METHODS #
@@ -48,11 +50,21 @@ func _do_create_new():
 	_data["time"] = 0
 	_data["ftue_stage"] = 0
 	_data["control_method"] = -1
+	_data["music"] = 5
+	_data["effects"] = 5
 	
 """ PUBLIC """
 
 func reset():
 	_do_create_new()
+	
+func set(key, val):
+	if _data.has(key):
+		_data[key] = val
+		
+func get(key):
+	if _data.has(key):
+		return _data[key]
 	
 func complete_level(level, score, time):
 	if _data["current_level"] == level:
@@ -69,6 +81,9 @@ func complete_level(level, score, time):
 	_data["level_record"][level] = record
 	
 	SaveManager.do_save()
+	
+func has_finished_game():
+	return _data["current_level"] >= 6
 		
 func has_level_record(level_id):
 	return _data["level_record"].has(level_id)

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Visager_-_28_-_Miniboss_Fight_Loop.ogg-6f03d6b7bd25e22072e6178b0de51985.oggstr"
+
+[deps]
+
+source_file="res://assets/music/Visager_-_28_-_Miniboss_Fight_Loop.ogg"
+dest_files=[ "res://.import/Visager_-_28_-_Miniboss_Fight_Loop.ogg-6f03d6b7bd25e22072e6178b0de51985.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

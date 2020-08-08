@@ -19,6 +19,7 @@ var _ftue = [
 ]
 var _ftue_timer = 2.0
 var _showing_ftue = false
+var _pending_wurm_spawn = false
 
 """ PUBLIC """
 
@@ -32,10 +33,12 @@ export var wurm_scene : PackedScene
 """ PRIVATE """
 	
 func _ready():
+	$Rope.disconnect("on_rope_reeled", $RopeLeft, "_on_Rope_on_rope_reeled")
 	$Rope.connect("on_rope_reeled", $RopeLeft, "_on_Rope_on_rope_reeled")
 	$Rope._on_Reel_on_reel(0.0)
 	PlayerData.coins = 0
 	PlayerData.time = 0
+	MusicManager.do_play("%d" % [level_id])
 	
 func _process(delta):
 	if _showing_ftue:
@@ -44,6 +47,14 @@ func _process(delta):
 	PlayerData.time += delta
 	$HUD.set_time("%01d:%02d.%01d" % [ int(PlayerData.time / 60), int(PlayerData.time / 1) % 60, int(fmod(PlayerData.time, 1.0) * 10.0) ])
 	$HUD.set_score("%d" % [ PlayerData.coins ])
+	
+	if _pending_wurm_spawn:
+		for spawn in $WurmSpawns.get_children():
+			var wurm = wurm_scene.instance()
+			wurm.position = spawn.position
+			wurm._target = $Rope.get_dude()
+			add_child(wurm)
+		_pending_wurm_spawn = false
 	
 	_ftue_timer -= delta
 	if _ftue_timer < 0.0 and PlayerData.ftue == 0:
@@ -85,14 +96,16 @@ func _input(event):
 func _on_level_complete():
 	PlayerData.complete_level(level_id, PlayerData.coins, PlayerData.time)
 	AudioPlayer.on_complete()
-	get_tree().change_scene("res://src/screen_levelselect/ScreenLevelSelect.tscn")
+	if PlayerData.has_finished_game():
+		get_tree().change_scene("res://src/screen_credits/ScreenCredits.tscn")
+	else:
+		get_tree().change_scene("res://src/screen_levelselect/ScreenLevelSelect.tscn")
 	
 func _on_chest_pick():
-	if $WurmSpawn:
-		var wurm = wurm_scene.instance()
-		wurm.position = $WurmSpawn.position
-		wurm._target = $Rope.get_dude()
-		add_child(wurm)
+	if not $WurmSpawns:
+		return
+		
+	_pending_wurm_spawn = true
 		
 func _on_dude_change_dir():
 	$HUD.yell()

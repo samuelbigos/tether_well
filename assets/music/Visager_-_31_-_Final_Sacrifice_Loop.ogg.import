@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Visager_-_31_-_Final_Sacrifice_Loop.ogg-1f6a87621b3fee2a996d321f0dcace9e.oggstr"
+
+[deps]
+
+source_file="res://assets/music/Visager_-_31_-_Final_Sacrifice_Loop.ogg"
+dest_files=[ "res://.import/Visager_-_31_-_Final_Sacrifice_Loop.ogg-1f6a87621b3fee2a996d321f0dcace9e.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

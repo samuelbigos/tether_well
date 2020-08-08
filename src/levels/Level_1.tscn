@@ -28,9 +28,12 @@ position = Vector2( 239.863, -497.168 )
 rope_segments = 74
 
 [node name="TileMap" type="TileMap" parent="."]
+z_index = -1
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 20, 20 )
 collision_friction = 0.1
+collision_layer = 3
+collision_mask = 3
 format = 1
 tile_data = PoolIntArray( -1638391, 3, 0, -1638386, 4, 0, -1572855, 3, 0, -1572850, 4, 0, -1507319, 3, 0, -1507314, 4, 0, -1441783, 3, 0, -1441778, 4, 0, -1376247, 3, 0, -1376242, 4, 0, -1310711, 3, 0, -1310706, 4, 0, -1245175, 3, 0, -1245170, 4, 0, -1179639, 3, 0, -1179634, 4, 0, -1114103, 3, 0, -1114098, 4, 0, -1048567, 3, 0, -1048562, 4, 0, -983031, 3, 0, -983026, 4, 0, -917495, 3, 0, -917490, 4, 0, -851959, 3, 0, -851954, 4, 0, -786423, 3, 0, -786418, 4, 0, -720887, 3, 0, -720882, 4, 0, -655351, 3, 0, -655346, 4, 0, -589815, 3, 0, -589810, 4, 0, -524279, 3, 0, -524274, 4, 0, -458743, 3, 0, -458738, 4, 0, -393207, 3, 0, -393202, 4, 0, -327671, 3, 0, -327666, 4, 0, -262135, 3, 0, -262130, 4, 0, -196599, 3, 0, -196594, 4, 0, -131063, 3, 0, -131058, 4, 0, -65527, 3, 0, -65522, 4, 0, 9, 3, 0, 14, 4, 0, 65545, 3, 0, 65550, 4, 0, 131081, 3, 0, 131086, 4, 0, 196617, 3, 0, 196622, 4, 0, 262153, 3, 0, 262158, 4, 0, 327689, 3, 0, 327694, 4, 0, 393220, 3, 0, 393235, 4, 0, 458756, 3, 0, 458771, 4, 0, 524292, 3, 0, 524307, 4, 0, 589828, 3, 0, 589843, 4, 0, 655364, 3, 0, 655379, 4, 0, 720900, 3, 0, 720915, 4, 0, 786436, 3, 0, 786451, 4, 0, 851972, 3, 0, 851987, 4, 0, 917508, 3, 0, 917523, 4, 0, 983044, 3, 0, 983059, 4, 0, 1048580, 3, 0, 1048595, 4, 0 )
 
@@ -92,11 +95,11 @@ position = Vector2( -35.0712, -21.7218 )
 position = Vector2( 128.667, 306.239 )
 
 [node name="Platform6" parent="." instance=ExtResource( 5 )]
-position = Vector2( 144.14, 119 )
+position = Vector2( 140.769, 119 )
 width = 5
 
 [node name="Platform7" parent="." instance=ExtResource( 5 )]
-position = Vector2( 385.82, 119 )
+position = Vector2( 389.94, 119.749 )
 width = 10
 
 [node name="HUD" parent="." instance=ExtResource( 3 )]
@@ -113,9 +116,9 @@ pause_mode = 2
 [node name="FTUE1" type="NinePatchRect" parent="FTUE"]
 visible = false
 margin_left = 49.0
-margin_top = 77.5
+margin_top = 78.0
 margin_right = 252.0
-margin_bottom = 204.5
+margin_bottom = 200.0
 texture = ExtResource( 13 )
 patch_margin_left = 7
 patch_margin_top = 7
@@ -155,7 +158,7 @@ visible = false
 margin_left = 232.0
 margin_top = 77.0
 margin_right = 422.0
-margin_bottom = 233.0
+margin_bottom = 202.0
 texture = ExtResource( 13 )
 patch_margin_left = 7
 patch_margin_top = 7

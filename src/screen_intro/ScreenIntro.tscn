@@ -8,49 +8,49 @@
 [ext_resource path="res://src/SpeechBubble.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/chars/player_walk.png" type="Texture" id=7]
 
-[sub_resource type="AtlasTexture" id=6]
+[sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 4 )
 region = Rect2( 0, 0, 16, 21 )
 
-[sub_resource type="AtlasTexture" id=7]
+[sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 4 )
 region = Rect2( 16, 0, 16, 21 )
 
-[sub_resource type="AtlasTexture" id=8]
+[sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 4 )
 region = Rect2( 32, 0, 16, 21 )
 
-[sub_resource type="AtlasTexture" id=9]
+[sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 4 )
 region = Rect2( 48, 0, 16, 21 )
 
 [sub_resource type="SpriteFrames" id=5]
 animations = [ {
-"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ) ],
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
 } ]
 
-[sub_resource type="AtlasTexture" id=10]
+[sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 7 )
 region = Rect2( 0, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=11]
+[sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 7 )
 region = Rect2( 16, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=12]
+[sub_resource type="AtlasTexture" id=8]
 atlas = ExtResource( 7 )
 region = Rect2( 32, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=13]
+[sub_resource type="AtlasTexture" id=9]
 atlas = ExtResource( 7 )
 region = Rect2( 48, 0, 16, 16 )
 
-[sub_resource type="SpriteFrames" id=14]
+[sub_resource type="SpriteFrames" id=10]
 animations = [ {
-"frames": [ SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ],
+"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -195,15 +195,14 @@ texture = ExtResource( 3 )
 [node name="Sir" type="AnimatedSprite" parent="."]
 position = Vector2( -2.53164, 248.916 )
 frames = SubResource( 5 )
-frame = 1
 playing = true
 
 [node name="Tween" type="Tween" parent="Sir"]
 
 [node name="Dude" type="AnimatedSprite" parent="."]
 position = Vector2( 307.343, 251.916 )
-frames = SubResource( 14 )
-frame = 2
+frames = SubResource( 10 )
+frame = 1
 playing = true
 flip_h = true
 
@@ -239,7 +238,5 @@ margin_right = 132.0
 [node name="TextureRect" parent="CanvasLayer/DudeSpeech" index="1"]
 margin_left = 16.379
 margin_right = 29.379
-[connection signal="text_complete" from="CanvasLayer/SirSpeech" to="." method="_on_SirSpeech_text_complete"]
-[connection signal="text_complete" from="CanvasLayer/DudeSpeech" to="." method="_on_SirSpeech_text_complete"]
 
 [editable path="CanvasLayer/DudeSpeech"]

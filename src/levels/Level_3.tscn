@@ -30,6 +30,8 @@ rope_segments = 74
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 20, 20 )
 collision_friction = 0.1
+collision_layer = 3
+collision_mask = 3
 format = 1
 tile_data = PoolIntArray( -1638391, 3, 0, -1638386, 4, 0, -1572855, 3, 0, -1572850, 4, 0, -1507319, 3, 0, -1507314, 4, 0, -1441783, 3, 0, -1441778, 4, 0, -1376247, 3, 0, -1376242, 4, 0, -1310711, 3, 0, -1310706, 4, 0, -1245175, 3, 0, -1245170, 4, 0, -1179639, 3, 0, -1179634, 4, 0, -1114103, 3, 0, -1114098, 4, 0, -1048567, 3, 0, -1048562, 4, 0, -983031, 3, 0, -983026, 4, 0, -917495, 3, 0, -917490, 4, 0, -851959, 3, 0, -851954, 4, 0, -786423, 3, 0, -786418, 4, 0, -720887, 3, 0, -720882, 4, 0, -655351, 3, 0, -655346, 4, 0, -589815, 3, 0, -589810, 4, 0, -524279, 3, 0, -524274, 4, 0, -458743, 3, 0, -458738, 4, 0, -393207, 3, 0, -393202, 4, 0, -327671, 3, 0, -327666, 4, 0, -262135, 3, 0, -262130, 4, 0, -196599, 3, 0, -196594, 4, 0, -131063, 3, 0, -131058, 4, 0, -65527, 3, 0, -65522, 4, 0, 4, 3, 0, 19, 4, 0, 65540, 3, 0, 65555, 4, 0, 131076, 3, 0, 131091, 4, 0, 196612, 3, 0, 196618, 3, 0, 196627, 4, 0, 262148, 3, 0, 262154, 3, 0, 262163, 4, 0, 327684, 3, 0, 327690, 3, 0, 327699, 4, 0, 393220, 3, 0, 393226, 3, 0, 393235, 4, 0, 458756, 3, 0, 458758, 5, 0, 458762, 3, 0, 458771, 4, 0, 524292, 3, 0, 524307, 4, 0, 589828, 3, 0, 589843, 4, 0, 655364, 3, 0, 655379, 4, 0, 720900, 3, 0, 720915, 4, 0, 786436, 3, 0, 786451, 4, 0, 851972, 3, 0, 851987, 4, 0, 917508, 3, 0, 917523, 4, 0, 983044, 3, 0, 983059, 4, 0, 1048580, 3, 0, 1048595, 4, 0 )
 
@@ -82,26 +84,23 @@ width = 2
 
 [node name="Platform5" parent="." instance=ExtResource( 7 )]
 position = Vector2( 238.8, 322.231 )
+z_index = -1
 width = 14
 
 [node name="Coin6" parent="Platform5" instance=ExtResource( 8 )]
-position = Vector2( 16.6131, -75.2481 )
+position = Vector2( 26.159, -76.6623 )
 attach = false
 
 [node name="Coin9" parent="Platform5" instance=ExtResource( 8 )]
-position = Vector2( 4.21794, -90.953 )
-attach = false
-
-[node name="Coin10" parent="Platform5" instance=ExtResource( 8 )]
-position = Vector2( -12.8491, -97.6272 )
+position = Vector2( 19.4208, -95.9027 )
 attach = false
 
 [node name="Coin7" parent="Platform5" instance=ExtResource( 8 )]
-position = Vector2( 28.2956, -56.7219 )
+position = Vector2( 31.8312, -56.7219 )
 attach = false
 
 [node name="Coin8" parent="Platform5" instance=ExtResource( 8 )]
-position = Vector2( 35.6051, -36.6915 )
+position = Vector2( 37.3729, -36.6915 )
 attach = false
 
 [node name="JumpPad2" parent="Platform5" instance=ExtResource( 13 )]
@@ -123,11 +122,11 @@ position = Vector2( -37.0912, -19.6972 )
 position = Vector2( 129.203, 304.528 )
 
 [node name="Platform6" parent="." instance=ExtResource( 7 )]
-position = Vector2( 93.1401, -3 )
+position = Vector2( 90.3117, 0 )
 width = 10
 
 [node name="Platform7" parent="." instance=ExtResource( 7 )]
-position = Vector2( 385.82, -3 )
+position = Vector2( 390.063, 0 )
 width = 10
 
 [node name="HUD" parent="." instance=ExtResource( 3 )]
@@ -151,14 +150,16 @@ z_index = 1
 texture = ExtResource( 11 )
 centered = false
 
-[node name="WurmSpawn" type="Position2D" parent="."]
-position = Vector2( 129.878, 150.535 )
-
 [node name="ChestArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ChestArea"]
 position = Vector2( 240, -24 )
 shape = SubResource( 1 )
+
+[node name="WurmSpawns" type="Node" parent="."]
+
+[node name="Wurm1" type="Position2D" parent="WurmSpawns"]
+position = Vector2( 129.878, 150.535 )
 [connection signal="on_rope_reeled" from="Rope" to="RopeLeft" method="_on_Rope_on_rope_reeled"]
 [connection signal="on_reel" from="Reel" to="Rope" method="_on_Reel_on_reel"]
 [connection signal="body_entered" from="ChestArea" to="." method="_on_ChestArea_body_entered"]

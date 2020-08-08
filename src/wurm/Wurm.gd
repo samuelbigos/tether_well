@@ -17,9 +17,9 @@ var _noise = OpenSimplexNoise.new()
 
 """ PUBLIC """
 
-const MOVE_SPEED = 25.0
+const MOVE_SPEED = 30.0
 const SEGMENT_LENGTH = 14
-const RAND_MOVE_INFLUENCE = 2.0
+const RAND_MOVE_INFLUENCE = 1.0
 
 export var segment_scene : PackedScene
 
@@ -52,6 +52,14 @@ func _process(delta):
 	for body in $Area2D.get_overlapping_bodies():
 		if body.is_in_group("dude"):
 			body.on_hit(self)
+			
+	if (_spawn_pos - _segments[_segments.size() - 1].position).length() > SEGMENT_LENGTH:
+		var segment = segment_scene.instance()
+		segment.position = _spawn_pos
+		segment.rotation = _segments[_segments.size() - 1].rotation
+		get_parent().add_child(segment)
+		segment.setup(_segments[_segments.size() - 1])
+		_segments.append(segment)
 
 func _integrate_forces(state):
 	if _target:
@@ -63,13 +71,5 @@ func _integrate_forces(state):
 		var transform = Transform(state.transform)	
 		state.transform = Transform2D(atan2(move_dir.x, -move_dir.y), state.transform.get_origin())
 		state.angular_velocity = 0.0
-		
-	if (_spawn_pos - _segments[_segments.size() - 1].position).length() > SEGMENT_LENGTH:
-		var segment = segment_scene.instance()
-		segment.position = _spawn_pos
-		segment.rotation = _segments[_segments.size() - 1].rotation
-		get_parent().add_child(segment)
-		segment.setup(_segments[_segments.size() - 1])
-		_segments.append(segment)
 
 """ PUBLIC """

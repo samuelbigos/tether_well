@@ -70,9 +70,10 @@ func _process(delta):
 			$VBoxContainer/Text.text += _text[_text_index]
 			_text_index += 1
 			
-			if $Talking and _rng.randi_range(0, 1):
+			if has_node("Talking") and _rng.randi_range(0, 1):
 				var rand = _rng.randi_range(0, 3)
 				var audio = $Talking.get_children()[rand]
+				audio.volume_db = AudioPlayer._volumes[PlayerData.get("effects")] - 5
 				audio.play()
 			
 			if _text_index >= _text.length():

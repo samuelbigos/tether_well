@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Visager_-_30_-_Inside_the_Tower_Loop.ogg-4913a9d17c6e273d2b56689bb75ef52a.oggstr"
+
+[deps]
+
+source_file="res://assets/music/Visager_-_30_-_Inside_the_Tower_Loop.ogg"
+dest_files=[ "res://.import/Visager_-_30_-_Inside_the_Tower_Loop.ogg-4913a9d17c6e273d2b56689bb75ef52a.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

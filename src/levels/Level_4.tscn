@@ -1,0 +1,227 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://assets/env/tileset.tres" type="TileSet" id=1]
+[ext_resource path="res://src/env/Chest.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/HUD.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/Reel.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/wurm/Wurm.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/env/Spike.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/env/Platform.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/env/Coin.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/rope/Rope.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/RopeLeft.gd" type="Script" id=10]
+[ext_resource path="res://assets/1px.png" type="Texture" id=11]
+[ext_resource path="res://src/levels/Game.gd" type="Script" id=12]
+[ext_resource path="res://src/env/JumpPad.tscn" type="PackedScene" id=13]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 56.3972, 22.6406 )
+
+[node name="Game" type="Node2D"]
+script = ExtResource( 12 )
+level_id = 4
+wurm_scene = ExtResource( 5 )
+
+[node name="Rope" parent="." instance=ExtResource( 9 )]
+position = Vector2( 239.863, -497.168 )
+rope_segments = 74
+
+[node name="TileMap" type="TileMap" parent="."]
+z_index = -1
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 20, 20 )
+collision_friction = 0.1
+collision_layer = 3
+collision_mask = 3
+format = 1
+tile_data = PoolIntArray( -1638391, 3, 0, -1638386, 4, 0, -1572855, 3, 0, -1572850, 4, 0, -1507319, 3, 0, -1507314, 4, 0, -1441783, 3, 0, -1441778, 4, 0, -1376247, 3, 0, -1376242, 4, 0, -1310711, 3, 0, -1310706, 4, 0, -1245175, 3, 0, -1245170, 4, 0, -1179639, 3, 0, -1179634, 4, 0, -1114103, 3, 0, -1114098, 4, 0, -1048567, 3, 0, -1048562, 4, 0, -983031, 3, 0, -983026, 4, 0, -917495, 3, 0, -917490, 4, 0, -851959, 3, 0, -851954, 4, 0, -786423, 3, 0, -786418, 4, 0, -720887, 3, 0, -720882, 4, 0, -655351, 3, 0, -655346, 4, 0, -589815, 3, 0, -589810, 4, 0, -524279, 3, 0, -524274, 4, 0, -458743, 3, 0, -458738, 4, 0, -393207, 3, 0, -393202, 4, 0, -327671, 3, 0, -327666, 4, 0, -262135, 3, 0, -262130, 4, 0, -196599, 3, 0, -196594, 4, 0, -131063, 3, 0, -131058, 4, 0, -65527, 3, 0, -65522, 4, 0, 4, 3, 0, 16, 4, 0, 19, 4, 0, 65540, 3, 0, 65552, 4, 0, 65555, 4, 0, 131076, 3, 0, 131088, 4, 0, 131091, 4, 0, 196612, 3, 0, 196613, 5, 0, 196624, 4, 0, 196626, 5, 0, 196627, 4, 0, 262148, 3, 0, 262160, 4, 0, 262163, 4, 0, 327684, 3, 0, 327699, 4, 0, 393220, 3, 0, 393235, 4, 0, 458756, 3, 0, 458761, 3, 0, 458766, 4, 0, 458771, 4, 0, 524292, 3, 0, 524297, 3, 0, 524302, 4, 0, 524307, 4, 0, 589828, 3, 0, 589833, 3, 0, 589838, 4, 0, 589843, 4, 0, 655364, 3, 0, 655369, 3, 0, 655374, 4, 0, 655379, 4, 0, 720900, 3, 0, 720915, 4, 0, 786436, 3, 0, 786451, 4, 0, 851972, 3, 0, 851987, 4, 0, 917508, 3, 0, 917523, 4, 0, 983044, 3, 0, 983059, 4, 0, 1048580, 3, 0, 1048595, 4, 0 )
+
+[node name="Platform3" parent="." instance=ExtResource( 7 )]
+position = Vector2( 140.801, 140.307 )
+width = 5
+
+[node name="Platform8" parent="." instance=ExtResource( 7 )]
+position = Vector2( 339.917, 140.307 )
+width = 5
+
+[node name="JumpPad" parent="Platform8" instance=ExtResource( 13 )]
+position = Vector2( 28.7146, -20.2492 )
+
+[node name="Platform4" parent="." instance=ExtResource( 7 )]
+position = Vector2( 239.762, 322.231 )
+width = 14
+
+[node name="Spike" parent="Platform4" instance=ExtResource( 6 )]
+position = Vector2( -128.169, -19.0935 )
+
+[node name="Spike2" parent="Platform4" instance=ExtResource( 6 )]
+position = Vector2( 127.744, -18.9658 )
+
+[node name="Platform5" parent="." instance=ExtResource( 7 )]
+position = Vector2( 241.918, 271.559 )
+width = 8
+
+[node name="JumpPad3" parent="Platform5" instance=ExtResource( 13 )]
+position = Vector2( -33.2028, -19.7864 )
+
+[node name="JumpPad5" parent="Platform5" instance=ExtResource( 13 )]
+position = Vector2( -10.3649, -20.0621 )
+
+[node name="JumpPad7" parent="Platform5" instance=ExtResource( 13 )]
+position = Vector2( 10.6912, -20.4156 )
+
+[node name="JumpPad9" parent="Platform5" instance=ExtResource( 13 )]
+position = Vector2( 32.5322, -20.7692 )
+
+[node name="Coin" parent="Platform5" instance=ExtResource( 8 )]
+position = Vector2( -10, -70 )
+attach = false
+
+[node name="Coin2" parent="Platform5" instance=ExtResource( 8 )]
+position = Vector2( 0, -70 )
+attach = false
+
+[node name="Coin3" parent="Platform5" instance=ExtResource( 8 )]
+position = Vector2( 10, -70 )
+attach = false
+
+[node name="Coin4" parent="Platform5" instance=ExtResource( 8 )]
+position = Vector2( 20, -70 )
+attach = false
+
+[node name="Coin5" parent="Platform5" instance=ExtResource( 8 )]
+position = Vector2( -20, -70 )
+attach = false
+
+[node name="Coin6" parent="Platform5" instance=ExtResource( 8 )]
+position = Vector2( -30, -70 )
+attach = false
+
+[node name="Coin7" parent="Platform5" instance=ExtResource( 8 )]
+position = Vector2( -30, -85 )
+attach = false
+
+[node name="Coin8" parent="Platform5" instance=ExtResource( 8 )]
+position = Vector2( -20, -85 )
+attach = false
+
+[node name="Coin9" parent="Platform5" instance=ExtResource( 8 )]
+position = Vector2( -10, -85 )
+attach = false
+
+[node name="Coin10" parent="Platform5" instance=ExtResource( 8 )]
+position = Vector2( 0, -85 )
+attach = false
+
+[node name="Coin11" parent="Platform5" instance=ExtResource( 8 )]
+position = Vector2( 10, -85 )
+attach = false
+
+[node name="Coin12" parent="Platform5" instance=ExtResource( 8 )]
+position = Vector2( 20, -85 )
+attach = false
+
+[node name="Coin13" parent="Platform5" instance=ExtResource( 8 )]
+position = Vector2( 30, -70 )
+attach = false
+
+[node name="Coin14" parent="Platform5" instance=ExtResource( 8 )]
+position = Vector2( 30, -85 )
+attach = false
+
+[node name="Chest" parent="." instance=ExtResource( 2 )]
+position = Vector2( 241.902, 306.31 )
+
+[node name="Platform6" parent="." instance=ExtResource( 7 )]
+position = Vector2( 89.568, 0 )
+width = 10
+
+[node name="Platform7" parent="." instance=ExtResource( 7 )]
+position = Vector2( 390.582, 0 )
+width = 10
+
+[node name="HUD" parent="." instance=ExtResource( 3 )]
+
+[node name="Reel" parent="." instance=ExtResource( 4 )]
+visible = false
+z_index = 2
+
+[node name="RopeLeft" type="Node2D" parent="."]
+position = Vector2( 27.594, 18.08 )
+script = ExtResource( 10 )
+
+[node name="End" type="Position2D" parent="RopeLeft"]
+position = Vector2( 0, 285.924 )
+
+[node name="Cover" type="Sprite" parent="RopeLeft"]
+modulate = Color( 0.105882, 0.0117647, 0.14902, 1 )
+position = Vector2( -8.89928, 285.972 )
+scale = Vector2( 12.9317, 301.994 )
+z_index = 1
+texture = ExtResource( 11 )
+centered = false
+
+[node name="WurmSpawns" type="Node2D" parent="."]
+
+[node name="Wurm1" type="Position2D" parent="WurmSpawns"]
+position = Vector2( 109.833, 70.2699 )
+
+[node name="Wurm2" type="Position2D" parent="WurmSpawns"]
+position = Vector2( 369.18, 70.005 )
+
+[node name="ChestArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChestArea"]
+position = Vector2( 240, -24 )
+shape = SubResource( 1 )
+
+[node name="Platform" parent="." instance=ExtResource( 7 )]
+position = Vector2( 129.595, 48.3405 )
+width = 3
+
+[node name="Coin" parent="Platform" instance=ExtResource( 8 )]
+position = Vector2( -10.6908, -17.818 )
+
+[node name="Coin2" parent="Platform" instance=ExtResource( 8 )]
+position = Vector2( -1.04742, -17.5651 )
+
+[node name="Platform9" parent="." instance=ExtResource( 7 )]
+position = Vector2( 229.421, 75.1168 )
+width = 4
+
+[node name="JumpPad" parent="Platform9" instance=ExtResource( 13 )]
+position = Vector2( -37.8821, -18.626 )
+
+[node name="Platform2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 328.541, 100.458 )
+width = 2
+
+[node name="Spike" parent="Platform2" instance=ExtResource( 6 )]
+position = Vector2( 14.2544, -19.1543 )
+
+[node name="Coin16" parent="Platform2" instance=ExtResource( 8 )]
+position = Vector2( 33.1606, -29.912 )
+attach = false
+
+[node name="Coin18" parent="Platform2" instance=ExtResource( 8 )]
+position = Vector2( 33.1606, -44.912 )
+attach = false
+
+[node name="Coin19" parent="Platform2" instance=ExtResource( 8 )]
+position = Vector2( 44.7499, -29.912 )
+attach = false
+
+[node name="Coin20" parent="Platform2" instance=ExtResource( 8 )]
+position = Vector2( 44.7499, -44.912 )
+attach = false
+
+[node name="Coin17" parent="Platform2" instance=ExtResource( 8 )]
+position = Vector2( 33.4943, -58.9448 )
+attach = false
+
+[node name="Coin22" parent="Platform2" instance=ExtResource( 8 )]
+position = Vector2( 45.0836, -58.9448 )
+attach = false
+[connection signal="on_rope_reeled" from="Rope" to="RopeLeft" method="_on_Rope_on_rope_reeled"]
+[connection signal="on_reel" from="Reel" to="Rope" method="_on_Reel_on_reel"]
+[connection signal="body_entered" from="ChestArea" to="." method="_on_ChestArea_body_entered"]

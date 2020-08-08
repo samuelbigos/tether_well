@@ -50,4 +50,3 @@ playing = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( 0, -1.17984 )
 shape = SubResource( 5 )
-[connection signal="body_entered" from="." to="." method="_on_Head_body_entered"]

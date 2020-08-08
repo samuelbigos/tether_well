@@ -75,6 +75,11 @@ _global_script_classes=[ {
 "path": "res://src/screen_controls/ScreenControls.gd"
 }, {
 "base": "CanvasLayer",
+"class": "ScreenCredits",
+"language": "GDScript",
+"path": "res://src/screen_credits/ScreenCredits.gd"
+}, {
+"base": "CanvasLayer",
 "class": "ScreenDisclaimer",
 "language": "GDScript",
 "path": "res://src/screen_disclaimer/ScreenDisclaimer.gd"
@@ -138,6 +143,7 @@ _global_script_class_icons={
 "RopeSegment": "",
 "SaveGame": "",
 "ScreenControls": "",
+"ScreenCredits": "",
 "ScreenDisclaimer": "",
 "ScreenIntro": "",
 "ScreenLevelSelect": "",
@@ -153,7 +159,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Tether Well"
-run/main_scene="res://src/screen_disclaimer/ScreenDisclaimer.tscn"
+run/main_scene="res://src/screen_menu/ScreenMenu.tscn"
 config/icon="res://icon.png"
 config/save_version=0
 
@@ -163,6 +169,7 @@ PlayerData="*res://src/PlayerData.gd"
 SaveManager="*res://src/SaveManager.gd"
 PauseController="*res://src/PauseController.gd"
 AudioPlayer="*res://src/AudioPlayer.tscn"
+MusicManager="*res://src/MusicManager.tscn"
 
 [display]
 
