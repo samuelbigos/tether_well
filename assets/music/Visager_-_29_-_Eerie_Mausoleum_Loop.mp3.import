@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Visager_-_29_-_Eerie_Mausoleum_Loop.mp3-da6e3459dfc0535c66b68d1bd8f39fbb.mp3str"
+
+[deps]
+
+source_file="res://assets/music/Visager_-_29_-_Eerie_Mausoleum_Loop.mp3"
+dest_files=[ "res://.import/Visager_-_29_-_Eerie_Mausoleum_Loop.mp3-da6e3459dfc0535c66b68d1bd8f39fbb.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

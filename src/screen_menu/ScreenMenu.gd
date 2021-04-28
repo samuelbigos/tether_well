@@ -32,7 +32,7 @@ func _ready():
 func _on_Play_pressed():
 	AudioPlayer.on_click()
 	match PlayerData.current_level:
-		0: get_tree().change_scene("res://src/screen_intro/ScreenIntro.tscn")
+		0: get_tree().change_scene("res://src/screen_controls/ScreenControls.tscn")
 		1: get_tree().change_scene("res://src/levels/Level_1.tscn")
 		2: get_tree().change_scene("res://src/levels/Level_2.tscn")
 		3: get_tree().change_scene("res://src/levels/Level_3.tscn")

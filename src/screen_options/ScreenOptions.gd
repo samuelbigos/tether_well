@@ -46,6 +46,7 @@ func _on_Back_pressed():
 
 func _on_Controls_pressed():
 	AudioPlayer.on_click()
+	PlayerData.came_from_options = true
 	get_tree().change_scene("res://src/screen_controls/ScreenControls.tscn")
 
 func _on_Music_pressed():

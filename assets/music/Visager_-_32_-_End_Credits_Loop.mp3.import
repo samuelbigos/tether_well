@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Visager_-_32_-_End_Credits_Loop.mp3-670c89428c9738b9f2b6fd8d8b893569.mp3str"
+
+[deps]
+
+source_file="res://assets/music/Visager_-_32_-_End_Credits_Loop.mp3"
+dest_files=[ "res://.import/Visager_-_32_-_End_Credits_Loop.mp3-670c89428c9738b9f2b6fd8d8b893569.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

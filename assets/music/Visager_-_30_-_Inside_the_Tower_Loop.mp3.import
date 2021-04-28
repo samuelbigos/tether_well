@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Visager_-_30_-_Inside_the_Tower_Loop.mp3-95f2692aa39ab7e3220a79eda82b4961.mp3str"
+
+[deps]
+
+source_file="res://assets/music/Visager_-_30_-_Inside_the_Tower_Loop.mp3"
+dest_files=[ "res://.import/Visager_-_30_-_Inside_the_Tower_Loop.mp3-95f2692aa39ab7e3220a79eda82b4961.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

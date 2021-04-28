@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Visager_-_31_-_Final_Sacrifice_Loop.mp3-6dd13e4e26721815c8baa1f59d96b9e9.mp3str"
+
+[deps]
+
+source_file="res://assets/music/Visager_-_31_-_Final_Sacrifice_Loop.mp3"
+dest_files=[ "res://.import/Visager_-_31_-_Final_Sacrifice_Loop.mp3-6dd13e4e26721815c8baa1f59d96b9e9.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

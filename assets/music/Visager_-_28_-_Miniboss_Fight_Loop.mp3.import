@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Visager_-_28_-_Miniboss_Fight_Loop.mp3-b22d80304cf1bbad9dd9098a92bf4458.mp3str"
+
+[deps]
+
+source_file="res://assets/music/Visager_-_28_-_Miniboss_Fight_Loop.mp3"
+dest_files=[ "res://.import/Visager_-_28_-_Miniboss_Fight_Loop.mp3-b22d80304cf1bbad9dd9098a92bf4458.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

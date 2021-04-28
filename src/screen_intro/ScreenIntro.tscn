@@ -195,6 +195,7 @@ texture = ExtResource( 3 )
 [node name="Sir" type="AnimatedSprite" parent="."]
 position = Vector2( -2.53164, 248.916 )
 frames = SubResource( 5 )
+frame = 3
 playing = true
 
 [node name="Tween" type="Tween" parent="Sir"]
@@ -202,7 +203,6 @@ playing = true
 [node name="Dude" type="AnimatedSprite" parent="."]
 position = Vector2( 307.343, 251.916 )
 frames = SubResource( 10 )
-frame = 1
 playing = true
 flip_h = true
 

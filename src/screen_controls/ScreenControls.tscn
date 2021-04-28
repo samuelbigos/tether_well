@@ -156,6 +156,7 @@ autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [connection signal="mouse_entered" from="CenterContainer/VBoxContainer/ControlA" to="." method="_on_ControlA_mouse_entered"]
 [connection signal="mouse_exited" from="CenterContainer/VBoxContainer/ControlA" to="." method="_on_ControlA_mouse_exited"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/ControlA" to="." method="_on_ControlA_pressed"]

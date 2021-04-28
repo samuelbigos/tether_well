@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Visager_-_24_-_Witchs_Hut_Loop.mp3-8e125458f6e4ee4fb2aaaf060d1e8820.mp3str"
+
+[deps]
+
+source_file="res://assets/music/Visager_-_24_-_Witchs_Hut_Loop.mp3"
+dest_files=[ "res://.import/Visager_-_24_-_Witchs_Hut_Loop.mp3-8e125458f6e4ee4fb2aaaf060d1e8820.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

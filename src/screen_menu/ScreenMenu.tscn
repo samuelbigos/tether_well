@@ -93,6 +93,7 @@ expand_icon = true
 
 [node name="ClickAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
+
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Play" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Continue" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/LevelSelect" to="." method="_on_Level_Select_pressed"]

@@ -1,3 +1,2 @@
-/export/linux/*
-/export/mac/*
-/export/win64/*
+/export/*
+/.import/*
